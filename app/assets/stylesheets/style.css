@@ -1,0 +1,30 @@
+.neon-input {
+  border: 1px solid #ff00ff;
+  border-radius: 3px;
+  padding: 5px;
+  margin-bottom: 10px;
+  width: 40%;
+  background: #666;
+  color: white;
+}
+
+/*.neon-input:focus with transition*/
+.neon-input:focus {
+  border: 3px solid #0000ff;
+  outline: none;
+  width: 50%;
+  -webkit-transition: all .2s ease-out;
+  -moz-transition: all .2s ease-out;
+  -ms-transition: all .2s ease-out;
+  -o-transition: all .2s ease-out;
+  transition: all .2s ease-out
+}
+
+body{
+  background: url("https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fb6439b1d-2134-4971-8e63-804c02198266%2FUntitled.png?table=block&id=4b818df4-d388-4ffd-943a-167023d68428&spaceId=2f3ed0cf-10ed-4f95-bffc-26abde038fa4&width=2000&userId=2c9470b7-aa7f-4124-8fed-5babbc806ba2&cache=v2");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  color: #fff !important;
+}

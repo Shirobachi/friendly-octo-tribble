@@ -1,0 +1,46 @@
+
+<tr class="bg-white border-b">
+	<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-r">
+		<%= question.id %>
+	</td>
+	<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-r">
+	<%= question.question %>
+	</td>
+
+	<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-r">
+	<%= question.ansA %>
+	</td>
+
+	<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-r">
+	<%= question.ansB %>
+	</td>
+
+	<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-r">
+	<%= question.ansC %>
+	</td>
+
+	<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-r">
+	<%= question.ansD %>
+	</td>
+
+	<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-r">
+	<%= question.points %>
+	</td>
+
+	<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-r">
+	<%= question.time %>
+	</td>
+
+	<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-r">
+	<%= question.questionUrl %>
+	</td>
+
+	<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-r">
+	<%= question.justification %>
+	</td>
+
+	<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-r">
+	<%= link_to "Edytuj", edit_question_path(question), remote: true %>
+	</td>
+
+</tr>

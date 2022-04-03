@@ -1,0 +1,68 @@
+<div class="mx-auto containter">
+
+
+<%= form_with(model: question) do |form| %>
+  <% if question.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+        <% question.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :question, "Treść pytania", style: "display: block" %>
+    <%= form.text_field :question, class: 'neon-input' %>
+  </div>
+
+  <div>
+    <%= form.label :ansA, "Odpowiedź A (poprawna)",  style: "display: block" %>
+    <%= form.text_field :ansA, class: 'neon-input' %>
+  </div>
+
+  <div>
+    <%= form.label :ansB, "Odpowiedź B", style: "display: block" %>
+    <%= form.text_field :ansB, class: 'neon-input' %>
+  </div>
+
+  <div>
+    <%= form.label :ansC, "Odpowiedź C", style: "display: block" %>
+    <%= form.text_field :ansC, class: 'neon-input' %>
+  </div>
+
+  <div>
+    <%= form.label :ansD, "Odpowiedź D", style: "display: block" %>
+    <%= form.text_field :ansD, class: 'neon-input' %>
+  </div>
+
+  <div>
+    <%= form.label :points, "Ilość punktów",  style: "display: block" %>
+    <%= form.number_field :points, class: 'neon-input' %>
+  </div>
+
+  <div>
+    <%= form.label :time, "Czas (w sekundach) na pytanie", style: "display: block" %>
+    <%= form.number_field :time, class: 'neon-input' %>
+  </div>
+
+  <div>
+    <%= form.label :questionUrl, "Link do źródła",style: "display: block" %>
+    <%= form.text_field :questionUrl, class: 'neon-input' %>
+  </div>
+
+  <div>
+    <%= form.label :justification, "Wytłumaczenie (opcjonalne)", style: "display: block" %>
+    <%= form.text_field :justification, class: 'neon-input' %>
+  </div>
+
+  <div>
+    <%= form.submit class: "bg-pink-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-full cursor-pointer" %>
+  </div>
+<% end %>
+
+
+</div>

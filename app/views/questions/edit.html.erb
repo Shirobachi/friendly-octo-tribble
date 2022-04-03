@@ -1,0 +1,11 @@
+<h1>Edycja pytań</h1>
+
+<%= render "form", question: @question %>
+
+<br>
+
+<div>
+  <%= link_to "Back to questions", questions_path %>
+  <%= button_to "Destroy this question", @question, method: :delete %>
+
+</div>

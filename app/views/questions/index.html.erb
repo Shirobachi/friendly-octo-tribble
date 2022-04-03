@@ -1,0 +1,67 @@
+<p style="color: green"><%= notice %></p>
+<p class="text-3xl">Pula pytań</p>
+
+<div class="flex flex-col">
+  <div class="w-screen">
+    <div class="py-2 inline-block min-w-full">
+      <div class="overflow-hidden">
+        <table class="min-w-full border text-center">
+          <thead class="mx-5 border-b bg-white">
+            <tr>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
+                #
+              </th>
+							<th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
+							Pytanie
+							</th>
+
+							<th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
+							Odpowiedź A (prawidłowa)
+							</th>
+
+							<th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
+							Odpowiedź B
+							</th>
+
+							<th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
+							Odpowiedź C
+							</th>
+
+							<th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
+							Odpowiedź D
+							</th>
+
+							<th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
+							Punkty
+							</th>
+
+							<th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
+							Czas
+							</th>
+
+							<th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
+							Źródło
+							</th>
+
+							<th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
+							Wyjaśnienie
+							</th>
+
+							<th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
+
+							</th>
+						</tr>
+          </thead>
+          <tbody>
+						<% @questions.each do |question| %>
+							<%= render question %>
+						<% end %>
+          </tbody>
+        </table>
+
+					<%= link_to "Dodaj pytanie", new_question_path, class: "bg-blue-600 content-center content-centerbg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full justify-cent" %>
+
+      </div>
+    </div>
+  </div>
+</div>
