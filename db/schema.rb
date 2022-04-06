@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_17_075041) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_06_194059) do
   create_table "questions", force: :cascade do |t|
     t.string "question"
     t.string "ansA"
@@ -21,6 +21,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_17_075041) do
     t.integer "time"
     t.string "questionUrl"
     t.string "justification"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.integer "bestScore"
+    t.string "linkToPhoto"
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

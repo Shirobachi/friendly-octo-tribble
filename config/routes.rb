@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :teams
   get 'menu', to: 'menu#index'
 
 	# https://guides.rubyonrails.org/routing.html
