@@ -1,5 +1,5 @@
 <p style="color: green"><%= notice %></p>
-<p class="text-3xl">Pula pytań</p>
+<p class="text-3xl text-center">Pula pytań</p>
 
 <div class="flex flex-col">
   <div class="w-screen">
@@ -62,6 +62,9 @@
 
       </div>
     </div>
-					<%= link_to "Dodaj pytanie", new_question_path, class: "bg-blue-600 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full flex justify-center"%>
+			<div class="flex justify-center">
+					<%= link_to "Dodaj pytanie", new_question_path, class: "bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"%>
+					<%= link_to "Powrót do menu głównego", menu_path, class: "bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full"%>
+			</div>
   </div>
 </div>

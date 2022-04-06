@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'menu', to: 'menu#index'
+
+	# https://guides.rubyonrails.org/routing.html
+
   resources :questions
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
