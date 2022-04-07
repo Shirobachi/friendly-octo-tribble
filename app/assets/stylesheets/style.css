@@ -1,5 +1,5 @@
 .neon-input {
-  border: 1px solid #ff00ff;
+  border: 1px solid #1e60c4;
   border-radius: 3px;
   padding: 5px;
   margin-bottom: 10px;
@@ -27,4 +27,32 @@ body{
   background-attachment: fixed;
   background-position: center;
   color: #fff !important;
+}
+.neons {
+  font-size: 25px;
+  height: 60px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-family: "Balsamiq Sans", cursive;
+  text-decoration: none;
+  color: var(--clr-neon);
+  border: var(--clr-neon) 3px solid;
+  background-color: transparent;
+  border-radius: 0.25em;
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+  box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+  transition: all 0.5s
+}
+
+.neons:hover {
+  background-color: var(--clr-neon);
+  color: #fff;
+ }
+
+:root {
+  --clr-neon: rgb(59, 255, 20);
+  --clr-bg: hsl(323 21% 16%)
 }
