@@ -36,3 +36,8 @@
 
 /app/assets/builds/*
 !/app/assets/builds/.keep
+
+/app/assets/builds/*
+!/app/assets/builds/.keep
+Procfile.dev
+app/assets/config/manifest.js
