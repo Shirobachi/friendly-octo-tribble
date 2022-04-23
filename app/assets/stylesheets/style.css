@@ -1,23 +1,21 @@
-.neon-input {
-  border: 1px solid #1e60c4;
-  border-radius: 3px;
-  padding: 5px;
-  margin-bottom: 10px;
+input[type=number], input[type=text], textarea {
   width: 40%;
-  background: #666;
-  color: white;
+
+	border: var(--clr-neon) 2px solid;
+	border-radius: 0.25em;
+
+	
+  color: var(--clr-neon);
+	background-color: transparent;
+
+	text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+	box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+
+	--clr-neon: rgb(59, 255, 20);
 }
 
-/*.neon-input:focus with transition*/
-.neon-input:focus {
-  border: 3px solid #0000ff;
-  outline: none;
-  width: 50%;
-  -webkit-transition: all .2s ease-out;
-  -moz-transition: all .2s ease-out;
-  -ms-transition: all .2s ease-out;
-  -o-transition: all .2s ease-out;
-  transition: all .2s ease-out
+input[type=number], input[type=text]:focus, textarea:focus {
+	border: var(--clr-neon) 3px solid;
 }
 
 body{
