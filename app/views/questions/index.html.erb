@@ -1,70 +1,19 @@
 <p style="color: green"><%= notice %></p>
-<p class="text-3xl text-center">Pula pytań</p>
+<p class="text-3xl text-center mt-5">Question set</p>
 
-<div class="flex flex-col">
-  <div class="w-screen">
-    <div class="py-2 inline-block min-w-full">
-      <div class="overflow-hidden">
-        <table class="min-w-full border text-center">
-          <thead class="mx-5 border-b bg-white">
-            <tr>
-              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
-                #
-              </th>
-							<th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
-							Pytanie
-							</th>
+<div>
+	<ol>
+		<% @questions.each do |question| %>
+			<li>
+				<%= question.question %>
+			</li>
+		<% end %>
+	</ol>
 
-							<th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
-							Odpowiedź A (prawidłowa)
-							</th>
-
-							<th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
-							Odpowiedź B
-							</th>
-
-							<th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
-							Odpowiedź C
-							</th>
-
-							<th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
-							Odpowiedź D
-							</th>
-
-							<th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
-							Punkty
-							</th>
-
-							<th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
-							Czas
-							</th>
-
-							<th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
-							Źródło
-							</th>
-
-							<th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
-							Wyjaśnienie
-							</th>
-
-							<th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
-
-							</th>
-						</tr>
-          </thead>
-          <tbody>
-						<% @questions.each do |question| %>
-							<%= render question %>
-						<% end %>
-          </tbody>
-        </table>
+	<div class="flex justify-center items-center py-8 space-x-5">
+		<%= link_to "Add new question", new_question_path, class: "neon neon-green"%>
+		<%= link_to "Go to menu", menu_path, class: "neon neon-red"%>
+	</div>
 
 
-      </div>
-    </div>
-			<div class="flex justify-center">
-					<%= link_to "Dodaj pytanie", new_question_path, class: "bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"%>
-					<%= link_to "Powrót do menu głównego", menu_path, class: "bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full"%>
-			</div>
-  </div>
 </div>
