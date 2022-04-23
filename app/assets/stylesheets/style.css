@@ -63,6 +63,10 @@ body{
 	--clr-neon: rgb(255, 255, 20);
 }
 
+.neon-red{
+	--clr-neon: rgba(255, 20, 20, 0.728);
+}
+
 .neon:hover {
   background-color: var(--clr-neon);
   color: #fff;
