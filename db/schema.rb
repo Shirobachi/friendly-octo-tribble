@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_06_194059) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_23_133731) do
   create_table "questions", force: :cascade do |t|
-    t.string "question"
-    t.string "ansA"
-    t.string "ansB"
-    t.string "ansC"
-    t.string "ansD"
-    t.integer "points"
-    t.integer "time"
+    t.string "question", null: false
+    t.string "ansA", null: false
+    t.string "ansB", null: false
+    t.string "ansC", null: false
+    t.string "ansD", null: false
+    t.integer "points", default: 1
+    t.integer "time", default: 120
     t.string "questionUrl"
     t.string "justification"
     t.datetime "created_at", null: false
