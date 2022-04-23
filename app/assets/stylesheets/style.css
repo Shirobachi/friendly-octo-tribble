@@ -30,7 +30,6 @@ body{
   font-size: 25px;
   height: 60px;
   min-width: 150px;
-  display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
@@ -42,7 +41,8 @@ body{
   border-radius: 0.25em;
   text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
   box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
-  transition: all 0.5s
+  transition: all 0.5s;
+	padding: 10px;
 }
 
 .neon-pink{
@@ -61,6 +61,10 @@ body{
 	--clr-neon: rgb(255, 255, 20);
 }
 
+.neon-yellow:hover{
+  color: #000!important;
+}
+
 .neon-red{
 	--clr-neon: rgba(255, 20, 20, 0.728);
 }
@@ -68,8 +72,4 @@ body{
 .neon:hover {
   background-color: var(--clr-neon);
   color: #fff;
-}
-
-:root {
-  --clr-bg: hsl(323 21% 16%)
 }
