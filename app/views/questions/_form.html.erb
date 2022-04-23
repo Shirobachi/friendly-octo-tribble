@@ -1,62 +1,57 @@
 <%= form_with(model: question) do |form| %>
   <% if question.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(question.errors.count, "error") %> prohibited this question from being saved:</h2>
-
-      <ul>
+		<div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
+			<p class="font-bold">Something went wrong!</p>
         <% question.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+					<p class="text-sm">
+						<%= error.full_message %>
+					</p>
         <% end %>
-      </ul>
+			</div>
+      
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :question, "Treść pytania", style: "display: block" %>
-    <%= form.text_field :question, class: 'neon-input' %>
-  </div>
+	<div class="mt-5 flex flex-col space-y-4">
+		<div>
+			<%= form.text_field :question, class: "neon-green", placeholder: "Question content" %>
+		</div>
 
-  <div>
-    <%= form.label :ansA, "Odpowiedź A (poprawna)",  style: "display: block" %>
-    <%= form.text_field :ansA, class: 'neon-input' %>
-  </div>
+		<div>
+			<%= form.text_field :ansA, class: "neon-green",  placeholder: "Answer A (correct)" %>
+		</div>
 
-  <div>
-    <%= form.label :ansB, "Odpowiedź B", style: "display: block" %>
-    <%= form.text_field :ansB, class: 'neon-input' %>
-  </div>
+		<div>
+			<%= form.text_field :ansB, class: "neon-green", placeholder: "Answer B" %>
+		</div>
 
-  <div>
-    <%= form.label :ansC, "Odpowiedź C", style: "display: block" %>
-    <%= form.text_field :ansC, class: 'neon-input' %>
-  </div>
+		<div>
+			<%= form.text_field :ansC, class: "neon-green", placeholder: "Answer C" %>
+		</div>
 
-  <div>
-    <%= form.label :ansD, "Odpowiedź D", style: "display: block" %>
-    <%= form.text_field :ansD, class: 'neon-input' %>
-  </div>
+		<div>
+			<%= form.text_field :ansD, class: "neon-green", placeholder: "Answer D" %>
+		</div>
 
-  <div>
-    <%= form.label :points, "Ilość punktów",  style: "display: block" %>
-    <%= form.number_field :points, class: 'neon-input' %>
-  </div>
+		<div>
+			<%= form.number_field :points, class: "neon-green", placeholder: "Score" %>
+		</div>
 
-  <div>
-    <%= form.label :time, "Czas (w sekundach) na pytanie", style: "display: block" %>
-    <%= form.number_field :time, class: 'neon-input' %>
-  </div>
+		<div>
+			<%= form.number_field :time, class: "neon-green", placeholder: "Time in seconds" %>
+		</div>
 
-  <div>
-    <%= form.label :questionUrl, "Link do źródła",style: "display: block" %>
-    <%= form.text_field :questionUrl, class: 'neon-input' %>
-  </div>
+		<div>
+			<%= form.text_field :questionUrl, class: "neon-green", placeholder: "URL to source" %>
+		</div>
 
-  <div>
-    <%= form.label :justification, "Wytłumaczenie (opcjonalne)", style: "display: block" %>
-    <%= form.text_field :justification, class: 'neon-input' %>
-  </div>
+		<div>
+			<%= form.text_field :justification, class: "neon-green", placeholder: "Justification" %>
+		</div>
 
-  <div>
-    <%= form.submit class: "bg-pink-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-full cursor-pointer" %>
-  </div>
+		<div>
+			<%= form.submit class: "neon neon-green" %>
+		</div>
+	</div>
+
 <% end %>
