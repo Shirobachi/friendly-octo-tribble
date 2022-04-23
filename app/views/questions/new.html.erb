@@ -1,10 +1,11 @@
 <div class="row">
   <div class="col">
 
-    <h1>Dodaj nowe pytanie</h1>
+    <p class="text-3xl mt-5">Add new question</p>
     <%= render "form", question: @question %>
-    <div class="mt-4">
-      <%= link_to "Back to questions", questions_path %>
+
+    <div class="flex justify-center items-center py-8 space-x-5">
+      <%= link_to "Back to questions", questions_path, class: "neon neon-yellow" %>
     </div>
 
   </div>
