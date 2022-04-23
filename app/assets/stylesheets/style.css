@@ -31,7 +31,7 @@ body{
 .neon {
   font-size: 25px;
   height: 60px;
-  width: 150px;
+  min-width: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
