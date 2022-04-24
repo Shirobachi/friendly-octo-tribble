@@ -1,32 +1,32 @@
-<%= form_with(model: team, class: "contents") do |form| %>
+<%= form_with(model: team) do |form| %>
   <% if team.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(team.errors.count, "error") %> prohibited this team from being saved:</h2>
-
-      <ul>
+		<div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
+			<p class="font-bold">Something went wrong!</p>
         <% team.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+					<p class="text-sm">
+						<%= error.full_message %>
+					</p>
         <% end %>
-      </ul>
+			</div>
     </div>
   <% end %>
+	
+	<div class="mt-5 flex flex-col space-y-4">
+		<div>
+			<%= form.text_field :name, class: "neon-green", placeholder: "Team's name" %>
+		</div>
 
-  <div class="my-5">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+		<div>
+			<%= form.text_field :linkToPhoto, class: "neon-green", placeholder: "Link to photo" %>
+		</div>
 
-  <div class="my-5">
-    <%= form.label :linkToPhoto %>
-    <%= form.text_field :linkToPhoto, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+		<div>
+			<%= form.number_field :quantity, class: "neon-green", placeholder: "Quantity" %>
+		</div>
 
-  <div class="my-5">
-    <%= form.label :quantity %>
-    <%= form.number_field :quantity, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+		<div>
+			<%= form.submit class: "neon neon-green" %>
+		</div>
+	</div>
 
-  <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
-  </div>
 <% end %>

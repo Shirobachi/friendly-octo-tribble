@@ -1,8 +1,10 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">Editing team</h1>
+<p class="text-3xl mt-5">Edit team</p>
 
-  <%= render "form", team: @team %>
+<%= render "form", team: @team %>
 
-  <%= link_to "Show this team", @team, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  <%= link_to "Back to teams", teams_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+<br>
+
+<div class="flex justify-center space-x-3">
+  <%= link_to "Back to teams", teams_path, class: "neon neon-gray" %>
+  <%= button_to "Destroy this team", @team, method: :delete, class: "neon neon-red" %>
 </div>

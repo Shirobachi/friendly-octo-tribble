@@ -1,7 +1,12 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">New team</h1>
+<div class="row">
+  <div class="col">
 
-  <%= render "form", team: @team %>
+    <p class="text-3xl mt-5">New team</p>
+    <%= render "form", team: @team  %>
 
-  <%= link_to 'Back to teams', teams_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <div class="flex justify-center items-center py-8 space-x-5">
+      <%= link_to "Back to teams", teams_path, class: "neon neon-gray" %>
+    </div>
+  </div>
 </div>
+

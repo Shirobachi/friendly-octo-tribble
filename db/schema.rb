@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_24_193551) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_24_231543) do
   create_table "questions", force: :cascade do |t|
     t.string "question", null: false
     t.string "ansA", null: false
@@ -34,7 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_24_193551) do
 
   create_table "teams", force: :cascade do |t|
     t.string "name"
-    t.integer "bestScore"
+    t.integer "bestScore", default: -1
     t.string "linkToPhoto"
     t.integer "quantity"
     t.datetime "created_at", null: false
