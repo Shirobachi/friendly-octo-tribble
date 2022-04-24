@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_23_133731) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_24_193551) do
   create_table "questions", force: :cascade do |t|
     t.string "question", null: false
     t.string "ansA", null: false
@@ -21,6 +21,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_23_133731) do
     t.integer "time", default: 120
     t.string "questionUrl"
     t.string "justification"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rules", force: :cascade do |t|
+    t.string "content"
+    t.integer "orderID"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

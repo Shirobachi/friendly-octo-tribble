@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :rules
   resources :teams
   get 'menu', to: 'menu#index'
 

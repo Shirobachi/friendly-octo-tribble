@@ -1,0 +1,10 @@
+<p class="text-3xl mt-5">Edit rule</p>
+
+<%= render "form", rule: @rule %>
+
+<br>
+
+<div class="flex justify-center space-x-3">
+  <%= link_to "Back to rules", rules_path, class: "neon neon-yellow" %>
+  <%= button_to "Destroy this rule", @rule, method: :delete, class: "neon neon-red" %>
+</div>
