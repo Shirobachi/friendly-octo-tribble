@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 	get 'menu', to: 'menu#index', as: :menu
 
 	get 'games/:id/questions' => 'games#questions', as: :game_questions
+	post 'games/:id/questions' => 'games#smart_questions'
   get 'games/:id/questions/:question' => 'games#toggle_question', as: :toggle_question
 	
 

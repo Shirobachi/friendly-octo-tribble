@@ -35,5 +35,9 @@ en:
       title: "Edit this game ( %{name} ) questions"
       add: "Add this question"
       usage: "Usage"
+      manual: "Manual adding questions"
+      smart: 
+        title: "Smart adding questions"
+        points: "Questions with %{points} points"
   questions:
     title: "Question"

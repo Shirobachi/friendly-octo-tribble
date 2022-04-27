@@ -67,11 +67,14 @@ class GamesController < ApplicationController
 		@game = Game.find(params[:id])
 		@name = @game.name
 		@questions = Question.all.order(:used)
+
+		# get all possible questions points uniq
+		@points = @questions.map { |q| q.points }.uniq
 	end
 
-	def toggle_question
-		@game = Game.find(params[:id])
-		@question = Question.find(params[:question])
+	def toggle_question(game_id = nil, question = nil, redirect = true)
+		@game = Game.find(game_id || params[:id])
+		@question = Question.find(question || params[:question])
 
 		if @game.questions.include?(@question)
 			@game.questions.delete(@question)
@@ -81,11 +84,33 @@ class GamesController < ApplicationController
 			@question.increment!(:used)
 		end
 
-		respond_to do |format|
-			format.html { redirect_to game_questions_path(@game) }
-			format.json { head :no_content }
+		if redirect
+			respond_to do |format|
+				format.html { redirect_to game_questions_path(@game) }
+				format.json { head :no_content }
+			end
 		end
 	end	
+
+	def smart_questions
+
+		# Get question with point params[:points] and not used in this game
+		@questions = Question.where(points: params[:points]).order(:used).limit(params[:limit])
+		game_id = params[:game]
+		game_questions = GameQuestion.where(:game_id => game_id)
+		@questions = @questions - game_questions.map { |q| q.question }
+
+		# Add each question to game by toggle_question
+		@questions.each do |question|
+			toggle_question(game_id, question.id, false)
+		end
+
+		# redirect to game_questions_path
+		respond_to do |format|
+			format.html { redirect_to game_questions_path(game_id) }
+			format.json { head :no_content }
+		end
+	end
 
 	private
 	# Use callbacks to share common setup or constraints between actions.
