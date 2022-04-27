@@ -112,6 +112,29 @@ class GamesController < ApplicationController
 		end
 	end
 
+	def teams
+		@game_id = params[:id]
+		@game = Game.find(@game_id)
+		@name = @game.name
+		@teams = Team.all.order(:orderID)
+	end
+
+	def toggle_team
+		@game = Game.find(params[:id])
+		@team = Team.find(params[:team])
+
+		if @game.teams.include?(@team)
+			@game.teams.delete(@team)
+		else
+			@game.teams << @team
+		end
+
+		respond_to do |format|
+			format.html { redirect_to game_teams_path(@game) }
+			format.json { head :no_content }
+		end
+	end
+
 	private
 	# Use callbacks to share common setup or constraints between actions.
 	def set_game

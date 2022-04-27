@@ -39,5 +39,7 @@ en:
       smart: 
         title: "Smart adding questions"
         points: "Questions with %{points} points"
+    teams:
+      title: "Edit this game ( %{name} ) teams"
   questions:
     title: "Question"
