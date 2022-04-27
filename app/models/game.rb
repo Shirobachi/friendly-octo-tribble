@@ -3,4 +3,7 @@ class Game < ApplicationRecord
 
 	has_many :game_questions
 	has_many :questions, through: :game_questions
+
+	has_many :game_teams
+	has_many :teams, through: :game_teams
 end
