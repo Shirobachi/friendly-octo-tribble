@@ -6,4 +6,7 @@ class Question < ApplicationRecord
 	validates :ansD, presence: true
 	validates :points, presence: true
 	validates :time, presence: true
+
+	has_many :game_questions
+	has_many :games, through: :game_questions
 end

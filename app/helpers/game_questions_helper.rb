@@ -1,0 +1,2 @@
+module GameQuestionsHelper
+end

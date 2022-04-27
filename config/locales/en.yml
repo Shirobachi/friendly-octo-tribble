@@ -30,4 +30,10 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  games:
+    questions: 
+      title: "Edit this game ( %{name} ) questions"
+      add: "Add this question"
+      usage: "Usage"
+  questions:
+    title: "Question"

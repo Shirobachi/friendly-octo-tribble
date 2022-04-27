@@ -1,0 +1,2 @@
+class GameQuestionsController < ApplicationController
+end
