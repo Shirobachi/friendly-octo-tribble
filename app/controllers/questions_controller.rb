@@ -15,6 +15,12 @@ class QuestionsController < ApplicationController
     @question = Question.new
   end
 
+  # GET /test
+  def test
+    @questions = Question.all
+    @tekst = 'Byłem w kontrolerze'
+  end
+
   # GET /questions/1/edit
   def edit
   end
