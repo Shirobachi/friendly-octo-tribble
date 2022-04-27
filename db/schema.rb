@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_25_014928) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_27_084011) do
   create_table "game_questions", force: :cascade do |t|
     t.integer "game_id", null: false
     t.integer "question_id", null: false
@@ -18,6 +18,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_25_014928) do
     t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_game_questions_on_game_id"
     t.index ["question_id"], name: "index_game_questions_on_question_id"
+  end
+
+  create_table "game_teams", force: :cascade do |t|
+    t.integer "game_id", null: false
+    t.integer "team_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_game_teams_on_game_id"
+    t.index ["team_id"], name: "index_game_teams_on_team_id"
   end
 
   create_table "games", force: :cascade do |t|
@@ -60,4 +69,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_25_014928) do
 
   add_foreign_key "game_questions", "games"
   add_foreign_key "game_questions", "questions"
+  add_foreign_key "game_teams", "games"
+  add_foreign_key "game_teams", "teams"
 end
