@@ -4,6 +4,11 @@ class GamesController < ApplicationController
 	# GET /games or /games.json
 	def index
 		@games = Game.all.order(:orderID)
+
+		# Change status to game_status.name
+		@games.each do |game|
+			game.status = GameStatus.find(game.status).name
+		end
 	end
 
 	# GET /games/1 or /games/1.json
@@ -21,6 +26,9 @@ class GamesController < ApplicationController
 
 	# POST /games or /games.json
 	def create
+		# Set status for gamestatus with "Configuring"
+		params[:game][:status] = GameStatus.find_by(name: "Configuring").id
+
 		# check if no name is given
 		if params[:game][:name].empty?
 			# replce with date DD-MM-YYYY
