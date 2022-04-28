@@ -1,16 +1,16 @@
-<p class="text-3xl mt-5">Games</p>
+<p class="text-3xl mt-5"><%= t('menu.game.title')%></p>
 
 <% if @games.count == 0 %>
-	<p class="text-center mt-10p">No games yet</p>
+	<p class="text-center mt-10p"><%= t('menu.game.noGame')%></p>
 <% else %>
 	<div class="md:px-32 py-8 w-full">
 		<div class="shadow overflow-hidden rounded border-b border-gray-200">
 			<table class="min-w-full bg-white">
 				<thead class="bg-gray-800 text-white">
 					<tr>
-						<th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Name</th>
-						<th class="text-left py-3 px-4 uppercase font-semibold text-sm">Status</th>
-						<th class="text-left py-3 px-4 uppercase font-semibold text-sm">Actions</td>
+						<th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm"><%= t('menu.game.name')%></th>
+						<th class="text-left py-3 px-4 uppercase font-semibold text-sm"><%= t('menu.game.status')%></th>
+						<th class="text-left py-3 px-4 uppercase font-semibold text-sm"><%= t('menu.game.actions')%></td>
 					</tr>
 				</thead>
 			<tbody class="text-gray-700">
@@ -54,6 +54,6 @@
 <% end %>
 
 <div class="flex justify-center items-center py-8 space-x-5">
-	<%= link_to "Add new game", new_game_path, class: "neon neon-green"%>
-	<%= link_to "Go to menu", menu_path, class: "neon neon-gray"%>
+	<%= link_to t('menu.game.new'), new_game_path, class: "neon neon-green"%>
+	<%= link_to t('back.toMenu'), menu_path, class: "neon neon-gray"%>
 </div>

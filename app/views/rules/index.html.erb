@@ -1,8 +1,8 @@
-<p class="text-3xl mt-5">Rules</p>
+<p class="text-3xl mt-5"><%= t("common.rules") %></p>
 
 <ul class="list-decimal">
 		<% if @rules.count == 0 %>
-			<li class="text-center">No rules yet</li>
+			<li class="text-center"><%= t("rules.info") %></li>
 		<% end %>
 		<% @rules.order(:orderID).each do |rule| %>
 			<div class="flex justify-between">
