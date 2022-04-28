@@ -43,3 +43,5 @@ en:
       title: "Edit this game ( %{name} ) teams"
   questions:
     title: "Question"
+  rules:
+    title: "Rules"
