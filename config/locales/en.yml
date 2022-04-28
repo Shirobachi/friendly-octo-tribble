@@ -30,16 +30,52 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  games:
-    questions: 
-      title: "Edit this game ( %{name} ) questions"
-      add: "Add this question"
-      usage: "Usage"
-      manual: "Manual adding questions"
-      smart: 
-        title: "Smart adding questions"
-        points: "Questions with %{points} points"
-    teams:
-      title: "Edit this game ( %{name} ) teams"
-  questions:
-    title: "Question"
+  menu:
+    game:
+      title: "Games"
+      new: "Add new game"
+      noGame: "No games yet"
+      name: "Name"
+      status: "Status"
+      actions: "Actions"
+    questions:
+      title: "Questions set"
+      new: "Add new question"
+      points: "Points/time"
+      noQuestion: "No questions yet"
+      question: "Question"
+      action: "Action"
+    scoreboard:
+      title: "Scoreboard"
+      teams: "Teams"
+      noTeams: "No teams yet"
+      new: "Add new team"
+  toast:
+    wrong: "Something went wrong!"  
+  back:
+    toMenu: "Back to menu"
+    toGame: "Back to games"
+    toQuestion: "Back to questions"
+    toTeams: "Back to teams"
+
+  # games:
+  #   questions: 
+  #     title: "Edit this game ( %{name} ) questions"
+  #     add: "Add this question"
+  #     usage: "Usage"
+  #     manual: "Manual adding questions"
+  #     smart: 
+  #       title: "Smart adding questions"
+  #       points: "Questions with %{points} points"
+  #   teams:
+  #     title: "Edit this game ( %{name} ) teams"
+  # questions:
+  #   title: "Question"
+  # rules:
+  #   info: "No rules yet"
+  # common:
+  #   game: "Games"
+  #   rules: "Rules"
+
+
+

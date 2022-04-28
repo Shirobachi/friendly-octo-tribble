@@ -1,11 +1,11 @@
 <div class="row">
   <div class="col">
 
-    <p class="text-3xl mt-5">Add new question</p>
+    <p class="text-3xl mt-5"><%= t('menu.questions.new')%></p>
     <%= render "form", question: @question %>
 
     <div class="flex justify-center items-center py-8 space-x-5">
-      <%= link_to "Back to questions", questions_path, class: "neon neon-gray" %>
+      <%= link_to t('back.toQuestion'), questions_path, class: "neon neon-gray" %>
     </div>
 
   </div>

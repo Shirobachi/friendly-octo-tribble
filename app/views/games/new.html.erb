@@ -1,11 +1,11 @@
 <div class="row">
   <div class="col">
 
-    <p class="text-3xl mt-5">Add new game</p>
+    <p class="text-3xl mt-5"><%= t('menu.game.new')%></p>
     <%= render "form", game: @game  %>
 
     <div class="flex justify-center items-center py-8 space-x-5">
-      <%= link_to "Back to games", games_path, class: "neon neon-gray" %>
+      <%= link_to t('back.toGame'), games_path, class: "neon neon-gray" %>
     </div>
   </div>
 </div>

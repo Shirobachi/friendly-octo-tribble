@@ -1,8 +1,8 @@
-<p class="text-3xl mt-5">Teams</p>
+<p class="text-3xl mt-5"><%= t('menu.scoreboard.teams')%></p>
 
 <ul class="list-decimal">
 		<% if @teams.count == 0 %>
-			<li class="text-center">No teams yet</li>
+			<li class="text-center"><%= t('menu.scoreboard.noTeams')%></li>
 		<% end %>
 		
 		<% @teams.order(bestScore: :desc).each do |team| %>
@@ -32,6 +32,6 @@
 	</ul>
 
 	<div class="flex justify-center items-center py-8 space-x-5">
-		<%= link_to "Add new team", new_team_path, class: "neon neon-green"%>
-		<%= link_to "Go to menu", menu_path, class: "neon neon-gray"%>
+		<%= link_to t('menu.scoreboard.new'), new_team_path, class: "neon neon-green"%>
+		<%= link_to t('back.toMenu'), menu_path, class: "neon neon-gray"%>
 	</div>
