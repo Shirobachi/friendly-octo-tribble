@@ -4,11 +4,6 @@ class GamesController < ApplicationController
 	# GET /games or /games.json
 	def index
 		@games = Game.all.order(:orderID)
-
-		# Change status to game_status.name
-		@games.each do |game|
-			game.status = GameStatus.find(game.status).name
-		end
 	end
 
 	# GET /games/1 or /games/1.json

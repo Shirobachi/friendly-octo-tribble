@@ -18,7 +18,7 @@
 				<% @games.each do |game| %>
 					<tr>
 						<td class="w-1/3 text-left py-3 px-4"><%= game.name%></td>
-						<td class="w-1/3 text-left py-3 px-4"> <%= game.status %> </td>
+						<td class="w-1/3 text-left py-3 px-4"> <%= GameStatus.find(game.id).name %> </td>
 						<td class="text-left py-3 px-4">
 							<div class="flex space-x-2">
 								<%= link_to edit_game_path(game), title: "Rename" do %>
