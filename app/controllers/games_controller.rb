@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
 	before_action :set_game, only: %i[ show edit update destroy ]
+	after_action :check_if_game_is_ready, only: [:toggle_question, :smart_questions, :toggle_team]
 
 	# GET /games or /games.json
 	def index
@@ -17,6 +18,22 @@ class GamesController < ApplicationController
 
 	# GET /games/1/edit
 	def edit
+	end
+
+	def check_if_game_is_ready
+		# count questions and teams in game
+		game_questions = GameQuestion.where(:game_id => params[:id])
+		game_teams = GameTeam.where(:game_id => params[:id])
+
+		# check if both > 0
+		if game_questions.count > 0 && game_teams.count > 0
+			@game.update(:status => "ready")
+		else
+			@game.update(:status => "configuring")
+		end
+
+		@game.save
+
 	end
 
 	# POST /games or /games.json
