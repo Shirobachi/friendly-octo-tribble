@@ -30,6 +30,38 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  activerecord:
+    errors:
+      models:
+        question:
+          attributes:
+            question:
+              blank: "field can't be empty"
+            ansA:
+              blank: "field can't be empty"
+            ansB:
+              blank: "field can't be empty"
+            ansC:
+              blank: "field can't be empty"
+            ansD:
+              blank: "field can't be empty"
+            questionURL:
+              invalid: "URL is invalid"
+        team:
+          attributes:
+            name:
+              blank: "field can't be empty"
+            quantity:
+              blank: "field can't be empty"
+            linkToPhoto:
+              invalid: "URL is invalid"
+        rule:
+          attributes:
+            content:
+              blank: "field can't be empty"    
+            orderID:
+              blank: "field can't be empty"
+
   menu:
     game:
       title: "Games"
@@ -41,22 +73,39 @@ en:
     questions:
       title: "Questions set"
       new: "Add new question"
-      points: "Points/time"
       noQuestion: "No questions yet"
+      points: "Points/time"
       question: "Question"
       action: "Action"
     scoreboard:
       title: "Scoreboard"
-      teams: "Teams"
-      noTeams: "No teams yet"
       new: "Add new team"
+      noTeams: "No teams yet"
+      edit: "Edit Team"
+      delete: "Delete whole team"
+      update: "Save"
+      teams: "Teams"
+    rules:
+      title: "Rules"
+      new: "Add new rule"
+      noRules: "No rules yet"
+      edit: "Edit rule"
+      delete: "Delete rule"
+
+  
   toast:
     wrong: "Something went wrong!"  
+  
   back:
     toMenu: "Back to menu"
     toGame: "Back to games"
     toQuestion: "Back to questions"
     toTeams: "Back to teams"
+    toRules: "Back to rules"
+  
+
+
+
 
   # games:
   #   questions: 

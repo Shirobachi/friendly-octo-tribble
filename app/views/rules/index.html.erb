@@ -1,8 +1,8 @@
-<p class="text-3xl mt-5"><%= t("common.rules") %></p>
+<p class="text-3xl mt-5"><%= t('menu.rules.title') %></p>
 
 <ul class="list-decimal">
 		<% if @rules.count == 0 %>
-			<li class="text-center"><%= t("rules.info") %></li>
+			<li class="text-center"><%= t("menu.rules.noRules") %></li>
 		<% end %>
 		<% @rules.order(:orderID).each do |rule| %>
 			<div class="flex justify-between">
@@ -21,6 +21,6 @@
 	</ul>
 
 	<div class="flex justify-center items-center py-8 space-x-5">
-		<%= link_to "Add new rule", new_rule_path, class: "neon neon-green"%>
-		<%= link_to "Go to menu", menu_path, class: "neon neon-gray"%>
+		<%= link_to t('menu.rules.new'), new_rule_path, class: "neon neon-green"%>
+		<%= link_to t('back.toMenu'), menu_path, class: "neon neon-gray"%>
 	</div>
