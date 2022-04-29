@@ -1,10 +1,10 @@
-<p class="text-3xl mt-5">Edit team</p>
+<p class="text-3xl mt-5"><%= t('menu.scoreboard.edit')%></p>
 
 <%= render "form", team: @team %>
 
 <br>
 
 <div class="flex justify-center space-x-3">
-  <%= link_to "Back to teams", teams_path, class: "neon neon-gray" %>
-  <%= button_to "Destroy this team", @team, method: :delete, class: "neon neon-red" %>
+  <%= link_to t('back.toTeams'), teams_path, class: "neon neon-gray" %>
+  <%= button_to t('menu.scoreboard.delete'), @team, method: :delete, class: "neon neon-red" %>
 </div>
