@@ -21,9 +21,6 @@ class GamesController < ApplicationController
 
 	# POST /games or /games.json
 	def create
-		# Set status for gamestatus with "Configuring"
-		params[:game][:status] = GameStatus.find_by(name: "Configuring").id
-
 		# check if no name is given
 		if params[:game][:name].empty?
 			# replce with date DD-MM-YYYY
@@ -47,11 +44,11 @@ class GamesController < ApplicationController
 	def update
 		respond_to do |format|
 			if @game.update(game_params)
-			format.html { redirect_to actions: "index", notice: "Game was successfully updated." }
-			format.json { render :show, status: :ok, location: @game }
+				format.html { redirect_to actions: "index", notice: "Game was successfully updated." }
+				format.json { render :show, status: :ok, location: @game }
 			else
-			format.html { render :edit, status: :unprocessable_entity }
-			format.json { render json: @game.errors, status: :unprocessable_entity }
+				format.html { render :edit, status: :unprocessable_entity }
+				format.json { render json: @game.errors, status: :unprocessable_entity }
 			end
 		end
 	end
@@ -61,7 +58,7 @@ class GamesController < ApplicationController
 		@game.destroy
 
 		respond_to do |format|
-			format.html { redirect_to games_url, notice: "Game was successfully destroyed." }
+			format.html { redirect_to actions: 'index', notice: "Game was successfully destroyed." }
 			format.json { head :no_content }
 		end
 	end
