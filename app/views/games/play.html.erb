@@ -47,8 +47,8 @@
 	</div>
 
 	<%# BUTTONS %>
-	<div class="flex flex-col md:flex-row justify-center items-center py-8 space-y-3 md:space-x-5">
-			<%= link_to "Next question", menu_path, class: "neon neon-yellow"%>
+	<div class="flex flex-col md:flex-row justify-center items-center py-8 space-y-3 md:space-y-0 md:space-x-5">
+			<%= link_to "Next question", game_play_next_path(@gp.game_id), class: "neon neon-yellow"%>
 			<%= link_to "Justification", games_path, class: "neon neon-green"%>
 			<%= link_to "Break", games_path, class: "neon neon-light-blue"%>
 	</div>

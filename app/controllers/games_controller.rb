@@ -222,6 +222,27 @@ class GamesController < ApplicationController
 		end
 	end
 
+	def play_next
+		gp = GameProgress.where(
+			:game_id => params[:id],
+		).where.not(
+			:status => "done"
+		)
+		
+		if ! gp.first.get_next_question.nil?
+			gp.first.update(
+				:question_id => gp.first.get_next_question
+			)
+			gp.first.save()
+		end
+
+		# Redirect
+		respond_to do |format|
+			format.html { redirect_to game_play_path(params[:id]) }
+			format.json { head :no_content }
+		end
+	end
+
 	private
 	# Use callbacks to share common setup or constraints between actions.
 	def set_game
