@@ -160,7 +160,12 @@ class GamesController < ApplicationController
 		@teams = Team.where(:id => teams_id.map { |t| t.team_id })
 
 		questions_id = GameQuestion.where(:game_id => params[:id])
-		@questions_count = Question.where(:id => questions_id.map { |q| q.question_id }).count
+		@questions = Question.where(:id => questions_id.map { |q| q.question_id })
+		@questions_done = 0
+		@questions.each do |q|
+			@questions_done += 1 if q.is_any_answer(@gp.game_id)
+		end
+		@questions_remaining = @questions.count - @questions_done
 	end
 
 	def play
