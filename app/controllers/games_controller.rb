@@ -231,13 +231,43 @@ class GamesController < ApplicationController
 		).where.not(
 			:status => "done"
 		)
+
+		if gp.first.status != "play"
+			gp.first.update(:status => "play")
+			gp.first.save()
+		end
 		
 		if ! gp.first.get_next_question.nil?
 			gp.first.update(
 				:question_id => gp.first.get_next_question
 			)
 			gp.first.save()
+			
+			# Redirect
+			respond_to do |format|
+				format.html { redirect_to game_play_path(params[:id]) }
+				format.json { head :no_content }
+			end
+		else
+			gp.first.update(:status => "done")
+			gp.first.save()
+
+			game = Game.find(gp.first.game_id)
+			game.update(:status => "finished")
+
+			redirect_to games_path, notice: "Game finished."
 		end
+	end
+
+	def play_break
+		gp = GameProgress.where(
+			:game_id => params[:id],
+		).where.not(
+			:status => "done"
+		)
+
+		gp.first.update(:status => "break")
+		gp.first.save()
 
 		# Redirect
 		respond_to do |format|
@@ -245,7 +275,6 @@ class GamesController < ApplicationController
 			format.json { head :no_content }
 		end
 	end
-
 	private
 	# Use callbacks to share common setup or constraints between actions.
 	def set_game

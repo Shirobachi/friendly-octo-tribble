@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 	get 'games/:id/play' => 'games#play', as: :game_play
 	get 'games/:id/play/:question/:team/:answer' => 'games#play_answer', as: :game_play_answer
 	get 'games/:id/play/next' => 'games#play_next', as: :game_play_next
+	get 'games/:id/play/break' => 'games#play_break', as: :game_play_break
 
 	# https://guides.rubyonrails.org/routing.html
 

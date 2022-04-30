@@ -48,12 +48,14 @@
 
 	<%# BUTTONS %>
 	<div class="flex flex-col md:flex-row justify-center items-center py-8 space-y-3 md:space-y-0 md:space-x-5">
-			<%= link_to "Next question", game_play_next_path(@gp.game_id), class: "neon neon-yellow"%>
+			<%= link_to @gp.get_next_question ? "Next question" : "Finish the game" , game_play_next_path(@gp.game_id), class: "neon neon-yellow"%>
+
 			<% if @question.justification %>
 				<%= link_to "Justification", @question.justification, class: "neon neon-green", :target => "_blank" %>
 			<% else %>
 				<p class="neon neon-disabled">Justification</p>
 			<% end %>
-			<%= link_to "Break", games_path, class: "neon neon-light-blue"%>
+			
+			<%= link_to "Break", game_play_break_path(@gp), class: "neon neon-light-blue"%>
 	</div>
 </div>
