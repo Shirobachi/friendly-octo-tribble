@@ -1,0 +1,45 @@
+<div class="w-10/12 flex flex-col mt-14 mx-auto">
+	<%# QUESTION %>
+	<div class="text-4xl border border-white p-3"> <%= @question.question %> </div>
+	<%# ANSWERS %>
+	<div class="flex mt-2">
+		<div class="border bottom-white w-1/2"><%= @question.ansA %></div>
+		<div class="border bottom-white w-1/2"><%= @question.ansB %></div>
+	</div>
+	<div class="flex mt-1">
+		<div class="border bottom-white w-1/2"><%= @question.ansC %></div>
+		<div class="border bottom-white w-1/2"><%= @question.ansD %></div>
+	</div>
+	
+	<%# TEAMS %>
+	<div class="my-4 border border-white">
+		<% @teams.each do |t| %>
+			<div class="flex my-2">
+				<div class="w-2/3">
+					<div class="font-bold p-1"><%= t.name %></div>
+				</div>
+				<div class="flex w-1/3">
+					<div class="border border-white p-1 mx-1">A</div>
+					<div class="border border-white p-1 mx-1">B</div>
+					<div class="border border-white p-1 mx-1">C</div>
+					<div class="border border-white p-1 mx-1">D</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
+
+	<%# GAME PROGRESS %>
+	<div class="flex border border-white p-5">
+		<% for c in 1..@questions_count %>
+			<%# <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="flex-1 bi bi-circle-fill" viewBox="0 0 16 16"> <circle cx="8" cy="8" r="8"/> </svg> %>
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="flex-1 bi bi-circle" viewBox="0 0 16 16"> <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/> </svg>
+		<% end %>
+	</div>
+
+	<%# BUTTONS %>
+	<div class="flex flex-col md:flex-row justify-center items-center py-8 space-y-3 md:space-x-5">
+			<%= link_to "Next question", menu_path, class: "neon neon-yellow"%>
+			<%= link_to "Justification", games_path, class: "neon neon-green"%>
+			<%= link_to "Break", games_path, class: "neon neon-light-blue"%>
+	</div>
+</div>

@@ -152,6 +152,51 @@ class GamesController < ApplicationController
 		end
 	end
 
+	def prepare_game_vars
+		@gp = GameProgress.find_by(:game_id => params[:id])
+
+		@question = Question.find(@gp.question_id)
+		teams_id = GameTeam.where(:game_id => params[:id])
+		@teams = Team.where(:id => teams_id.map { |t| t.team_id })
+
+		questions_id = GameQuestion.where(:game_id => params[:id])
+		@questions_count = Question.where(:id => questions_id.map { |q| q.question_id }).count
+	end
+
+	def play
+		# Check if any game has status 'running'
+		@games = Game.where(:status => "running")
+		if @games.count > 0
+			# Check if games has game with id as params[:id]
+			if @games.first.id.to_i == params[:id].to_i
+				# Play game (someone clicked on the running game)
+				prepare_game_vars
+			else
+				# redirect to games_path
+				redirect_to games_path, notice: "There is already a game running."
+			end
+		else
+			# find game with status 'ready'
+			@game = Game.find(params[:id])
+			@game.update(:status => "running")
+			@game.save
+
+			# Get game's questions
+			@questions = GameQuestion.where(:game_id => @game.id)
+			@question = @questions.first.id
+
+			# Make new game_progress
+			@game_progress = GameProgress.new(
+				:game_id => @game.id, 
+				:question_id => @question,
+				:status => "rules"
+			)
+			@game_progress.save()
+			
+			prepare_game_vars
+		end
+	end
+
 	private
 	# Use callbacks to share common setup or constraints between actions.
 	def set_game
