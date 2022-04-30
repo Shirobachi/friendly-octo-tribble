@@ -18,16 +18,14 @@ class Question < ApplicationRecord
 			:question_id => self.id,
 		)
 
-		if answers.count > 0
-			gp = GameProgress.where(
-				:game_id => game_id,
-				:question_id => self.id,
-			)
-			if gp.nil?
-				return true
-			else
-				return false
-			end
+		the_game = GameProgress.where(
+			:game_id => game_id 
+		).where.not(
+			:status => "done"
+		).first
+
+		if answers.count > 0 && the_game.question_id != self.id
+			return true
 		else
 			return false
 		end

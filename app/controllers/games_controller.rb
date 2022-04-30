@@ -161,9 +161,12 @@ class GamesController < ApplicationController
 
 		questions_id = GameQuestion.where(:game_id => params[:id])
 		@questions = Question.where(:id => questions_id.map { |q| q.question_id })
+
 		@questions_done = 0
 		@questions.each do |q|
-			@questions_done += 1 if q.is_any_answer(@gp.game_id)
+			if q.is_any_answer(@gp.game_id)
+				@questions_done += 1 
+			end
 		end
 		@questions_remaining = @questions.count - @questions_done
 	end
