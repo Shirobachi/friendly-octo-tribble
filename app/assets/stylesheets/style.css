@@ -73,6 +73,17 @@ body{
 	--clr-neon: rgb(147, 147, 147);
 }
 
+.neon-disabled{
+	--clr-neon: rgb(147, 147, 147);
+}
+
+.neon-disabled:hover{
+	--clr-neon: rgb(147, 147, 147);
+  background-color: transparent!important;
+	color: var(--clr-neon)!important;
+	cursor: default;
+}
+
 .neon:hover {
   background-color: var(--clr-neon);
   color: #fff;
