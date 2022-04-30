@@ -30,4 +30,29 @@ class Question < ApplicationRecord
 			return false
 		end
 	end
+
+	def get_order
+		order = "abcs"
+
+		hash = self.id.hash()
+
+		if hash.to_s.length % 2 != 0
+			hash = hash.to_s + "0"
+		end
+
+		for i in 0..hash.to_s.length-1
+			i1 = i.to_i%order.length
+			i2 = (i+1).to_i%order.length
+			
+			# swap i1 and i2
+			temp = order[i1]
+			order[i1] = order[i2]
+			order[i2] = temp
+
+			i += 1
+		end
+
+		return order
+
+	end
 end
