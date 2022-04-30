@@ -61,7 +61,11 @@ en:
               blank: "field can't be empty"    
             orderID:
               blank: "field can't be empty"
-
+        game:
+          attributes:
+            name:
+              taken: "is already taken"
+       
   menu:
     game:
       title: "Games"
@@ -74,6 +78,8 @@ en:
       title: "Questions set"
       new: "Add new question"
       noQuestion: "No questions yet"
+      edit: "Edit question"
+      delete: "Delete this question"
       points: "Points/time"
       question: "Question"
       action: "Action"
@@ -90,41 +96,40 @@ en:
       new: "Add new rule"
       noRules: "No rules yet"
       edit: "Edit rule"
-      delete: "Delete rule"
-
-  
+      delete: "Delete this rule"
+    
   toast:
     wrong: "Something went wrong!"  
   
+  succed:
+    game:
+      create: "Game created"
+      update: "Game updated"
+      delete: "Game deleted"
+    question:
+      create: "Question created"
+      update: "Question updated"
+      delete: "Question deleted"
+    rule:
+      create: "Rule created"
+      update: "Rule updated"
+      delete: "Rule deleted"
+    team:
+      create: "Team created"
+      update: "Team updated"
+      delete: "Team deleted" 
+
+  actions:
+    rename: "Rename"
+    question: "Manage questions to game"
+    teams: "Manage teams take part in game"
+
+
   back:
     toMenu: "Back to menu"
     toGame: "Back to games"
     toQuestion: "Back to questions"
     toTeams: "Back to teams"
     toRules: "Back to rules"
-  
-
-
-
-
-  # games:
-  #   questions: 
-  #     title: "Edit this game ( %{name} ) questions"
-  #     add: "Add this question"
-  #     usage: "Usage"
-  #     manual: "Manual adding questions"
-  #     smart: 
-  #       title: "Smart adding questions"
-  #       points: "Questions with %{points} points"
-  #   teams:
-  #     title: "Edit this game ( %{name} ) teams"
-  # questions:
-  #   title: "Question"
-  # rules:
-  #   info: "No rules yet"
-  # common:
-  #   game: "Games"
-  #   rules: "Rules"
-
 
 

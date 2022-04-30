@@ -25,7 +25,7 @@ class RulesController < ApplicationController
 
     respond_to do |format|
       if @rule.save
-        format.html { redirect_to action: "index", notice: "Rule was successfully created." }
+        format.html { redirect_to action: "index", notice: t('succed.rule.create') }
         format.json { render :show, status: :created, location: @rule }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class RulesController < ApplicationController
   def update
     respond_to do |format|
       if @rule.update(rule_params)
-        format.html { redirect_to action: "index", notice: "Rule was successfully updated." }
+        format.html { redirect_to action: "index", notice: t('succed.rule.update') }
         format.json { render :show, status: :ok, location: @rule }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class RulesController < ApplicationController
     @rule.destroy
 
     respond_to do |format|
-      format.html { redirect_to rules_url, notice: "Rule was successfully destroyed." }
+      format.html { redirect_to rules_url, notice: t('succed.rule.delete') }
       format.json { head :no_content }
     end
   end

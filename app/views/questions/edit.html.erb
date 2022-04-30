@@ -1,10 +1,10 @@
-<p class="text-3xl mt-5">Edit question</p>
+<p class="text-3xl mt-5"><%= t('menu.questions.edit')%></p>
 
 <%= render "form", question: @question %>
 
 <br>
 
 <div class="flex justify-center space-x-3">
-  <%= link_to "Back to questions", questions_path, class: "neon neon-gray" %>
-  <%= button_to "Destroy this question", @question, method: :delete, class: "neon neon-red" %>
+  <%= link_to t('back.toQuestion'), questions_path, class: "neon neon-gray" %>
+  <%= button_to t('menu.questions.delete'), @question, method: :delete, class: "neon neon-red" %>
 </div>
