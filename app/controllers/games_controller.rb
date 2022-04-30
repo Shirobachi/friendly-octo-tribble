@@ -242,7 +242,7 @@ class GamesController < ApplicationController
 				:question_id => gp.first.get_next_question
 			)
 			gp.first.save()
-			
+
 			# Redirect
 			respond_to do |format|
 				format.html { redirect_to game_play_path(params[:id]) }
@@ -256,6 +256,23 @@ class GamesController < ApplicationController
 			game.update(:status => "finished")
 
 			redirect_to games_path, notice: "Game finished."
+		end
+	end
+
+	def play_scoreboard
+		gp = GameProgress.where(
+			:game_id => params[:id],
+		).where.not(
+			:status => "done"
+		)
+
+		gp.first.update(:status => "scoreboard")
+		gp.first.save()
+
+		# Redirect
+		respond_to do |format|
+			format.html { redirect_to game_play_path(params[:id]) }
+			format.json { head :no_content }
 		end
 	end
 
