@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  game: one
+  question: one
+  team: one
+  answer: MyString
+
+two:
+  game: two
+  question: two
+  team: two
+  answer: MyString
