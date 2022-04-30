@@ -1,5 +1,5 @@
 class GameProgress < ApplicationRecord
-	validates :game_id, presence: true
+	validates :game_id, presence: true, uniqueness: true
 	validates :question_id, presence: true
 	validates :status, presence: true
 
@@ -14,6 +14,10 @@ class GameProgress < ApplicationRecord
 		@question = @questions.where("id > ?", self.question_id).first
 
 		# Return next question
-		return @question.id
+		if @question.nil?
+			return nil
+		else
+			return @question.id
+		end
 	end
 end
