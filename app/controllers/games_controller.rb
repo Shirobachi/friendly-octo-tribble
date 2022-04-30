@@ -197,6 +197,26 @@ class GamesController < ApplicationController
 		end
 	end
 
+	def play_answer
+		# Remove old answer
+		Answer.where(:game_id => params[:id], :question_id => params[:question], :team_id => params[:team]).destroy_all
+
+		# Create new answer
+		@answer = Answer.new(
+			:game_id => params[:id],
+			:question_id => params[:question],
+			:team_id => params[:team],
+			:answer => params[:answer]
+		)
+		@answer.save()
+
+		# Redirect
+		respond_to do |format|
+			format.html { redirect_to game_play_path(params[:id]) }
+			format.json { head :no_content }
+		end
+	end
+
 	private
 	# Use callbacks to share common setup or constraints between actions.
 	def set_game

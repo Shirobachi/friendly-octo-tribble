@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 	get 'games/:id/teams' => 'games#teams', as: :game_teams
   get 'games/:id/teams/:team' => 'games#toggle_team', as: :toggle_team
 	get 'games/:id/play' => 'games#play', as: :game_play
+	get 'games/:id/play/:question/:team/:answer' => 'games#play_answer', as: :game_play_answer
 
 	# https://guides.rubyonrails.org/routing.html
 
