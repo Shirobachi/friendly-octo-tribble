@@ -29,6 +29,18 @@ class Question < ApplicationRecord
 		end
 	end
 
+	def get_answer(answer)
+		if answer.downcase == "a"
+			return self.ansA
+		elsif answer.downcase == "b"
+			return self.ansB
+		elsif answer.downcase == "c"
+			return self.ansC
+		elsif answer.downcase == "d"
+			return self.ansD
+		end
+	end
+
 	def order
 		order = "abcd"
 
