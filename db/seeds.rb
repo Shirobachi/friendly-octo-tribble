@@ -19,11 +19,18 @@ questions = Question.create([
 ])
 
 teams = Team.create([
-	{ name: "Huslers", quantity: 5 },
-	{ name: "Iconic", quantity: 6 },
-	{ name: "Penguins", quantity: 7 },
-	{ name: "Cats", quantity: 8 },
-	{ name: "Dogs", quantity: 9 },
+	{ name: "Huslers", quantity: 5, bestScore: rand(10) },
+	{ name: "Iconic", quantity: 6, bestScore: rand(10) },
+	{ name: "Penguins", quantity: 7, bestScore: rand(10) },
+	{ name: "Cats", quantity: 8, bestScore: rand(10) },
+	{ name: "Dogs", quantity: 9, bestScore: rand(10) },
+	{ name: "Bears", quantity: 10, bestScore: rand(10) },
+	{ name: "Lions", quantity: 11, bestScore: rand(10) },
+	{ name: "Tigers", quantity: 12, bestScore: rand(10) },
+	{ name: "Birds", quantity: 13, bestScore: rand(100), linkToPhoto: "https://i.imgur.com/715dGH9.jpeg" },
+	{ name: "Horses", quantity: 14, bestScore: rand(100), linkToPhoto: "https://i.imgur.com/715dGH9.jpeg" },
+	{ name: "Monkeys", quantity: 15, bestScore: rand(100), linkToPhoto: "https://i.imgur.com/715dGH9.jpeg" },
+	{ name: "Elephants", quantity: 16, bestScore: rand(100), linkToPhoto: "https://i.imgur.com/715dGH9.jpeg" },
 ])
 
 rules = Rule.create([
