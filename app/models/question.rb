@@ -65,4 +65,13 @@ class Question < ApplicationRecord
 		return order
 
 	end
+
+	def count_answers(game_id, answer)
+		return Answer.where(
+			:game_id => game_id,
+			:question_id => self.id,
+			:answer => answer.upcase
+		).count
+	end
+
 end
