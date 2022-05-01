@@ -292,6 +292,28 @@ class GamesController < ApplicationController
 			format.json { head :no_content }
 		end
 	end
+
+	def play_show_question
+		gp = GameProgress.where(
+			:game_id => params[:id],
+		).where.not(
+			:status => "done"
+		)
+
+		gp.first.update(:status => "play")
+		gp.first.save()
+
+		# Redirect
+		respond_to do |format|
+			format.html { redirect_to game_play_path(params[:id]) }
+			format.json { head :no_content }
+		end
+	end
+
+	def test
+		render plain: Question.all().first.get_order
+	end
+	
 	private
 	# Use callbacks to share common setup or constraints between actions.
 	def set_game

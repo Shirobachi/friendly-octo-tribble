@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 	get 'games/:id/play/next' => 'games#play_next', as: :game_play_next
 	get 'games/:id/play/break' => 'games#play_break', as: :game_play_break
 	get 'games/:id/play/scoreboard' => 'games#play_scoreboard', as: :game_play_scoreboard
+	get 'games/:id/play/showQuestion' => 'games#play_show_question', as: :game_play_show_question
 
 	# https://guides.rubyonrails.org/routing.html
 
