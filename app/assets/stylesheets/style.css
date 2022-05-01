@@ -53,6 +53,10 @@ body{
 	--clr-neon: rgb(59, 255, 20);
 }
 
+.neon-tail{
+	--clr-neon: rgb(255, 255, 255);
+}
+
 .neon-light-blue{
 	--clr-neon: rgb(20, 255, 247);
 }
