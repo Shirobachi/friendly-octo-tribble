@@ -2,13 +2,14 @@
 	<%# QUESTION %>
 	<div class="text-4xl border border-white p-3"> <%= @question.question %> </div>
 	<%# ANSWERS %>
-	<div class="flex mt-2">
-		<div class="border bottom-white w-1/2"><%= @question.ansA %></div>
-		<div class="border bottom-white w-1/2"><%= @question.ansB %></div>
-	</div>
-	<div class="flex mt-1">
-		<div class="border bottom-white w-1/2"><%= @question.ansC %></div>
-		<div class="border bottom-white w-1/2"><%= @question.ansD %></div>
+	<div class="flex flex-wrap mt-2">
+
+		<% letters = "ABCD" %>
+		<% @question.order.split('').each_with_index do |o, i| %>
+			<div class="border bottom-white w-1/2">
+				<%= letters[i] %>. <%= @question.get_answer(o) %>
+			</div>
+		<% end %>
 	</div>
 	
 	<%# TEAMS %>
