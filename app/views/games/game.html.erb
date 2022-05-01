@@ -70,7 +70,14 @@
 				<% end %>
 
 			<% elsif @gp.status == "scoreboard" %>
-				scoreboard
+				<div class="neon neon-text neon-red mb-5">Scoreboard</div>
+				<% @team_scoreboard.each do |t| %>
+					<p class="text-lg neon-text neon-green">
+						<%= t['team'].name %> <%= t['score'] %> points <br>
+					</p>
+				<% end %>
+
+				
 			<% else %>
 				else
 			<% end %>

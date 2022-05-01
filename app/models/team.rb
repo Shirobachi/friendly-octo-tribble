@@ -17,6 +17,13 @@ class Team < ApplicationRecord
 		else
 			return answer.answer
 		end
+	end
 
+	def get_score(game_id)
+		return Answer.where(
+			:team_id => self.id,
+			:game_id => game_id,
+			:answer => "A"
+		).count
 	end
 end

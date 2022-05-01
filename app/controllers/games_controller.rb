@@ -193,6 +193,21 @@ class GamesController < ApplicationController
 		if @gp.status == "break"
 			@teamScores = Team.all.order(:bestScore => :desc).limit(20)
 		end
+
+		if @gp.status == "scoreboard"
+
+			@team_scoreboard = []
+
+			@teams.each do |team|
+				team_score = team.get_score(@gp.game_id)
+				@team_scoreboard.push({
+					"team" => team,
+					"score" => team_score
+				})
+			end
+			# sort
+			@team_scoreboard = @team_scoreboard.sort_by { |hsh| hsh[:score] }.reverse
+		end
 	end
 
 	def play
@@ -282,7 +297,7 @@ class GamesController < ApplicationController
 			)
 			gp.first.save()
 
-			add_webhook_record(gp.first)
+			add_webhook_record(gp.first.id)
 
 			# Redirect
 			respond_to do |format|
@@ -312,7 +327,7 @@ class GamesController < ApplicationController
 		gp.first.update(:status => "scoreboard")
 		gp.first.save()
 
-		add_webhook_record(gp.first)
+		add_webhook_record(gp.first.id)
 
 		# Redirect
 		respond_to do |format|
@@ -331,7 +346,7 @@ class GamesController < ApplicationController
 		gp.first.update(:status => "break")
 		gp.first.save()
 
-		add_webhook_record(gp.first)
+		add_webhook_record(gp.first.id)
 
 		# Redirect
 		respond_to do |format|
@@ -341,7 +356,7 @@ class GamesController < ApplicationController
 	end
 
 	def add_webhook_record(gp_id)
-		gp_id.add_webhook_record
+		GameProgress.find(gp_id).add_webhook_record
 	end
 
 	def play_show_question
@@ -354,7 +369,7 @@ class GamesController < ApplicationController
 		gp.first.update(:status => "play")
 		gp.first.save()
 		
-		add_webhook_record(gp.first)
+		add_webhook_record(gp.first.id)
 
 		# Redirect
 		respond_to do |format|
