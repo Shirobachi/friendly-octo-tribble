@@ -18,9 +18,12 @@
 
 				<div class="flex mt-10 flex-wrap">
 					<% @question.order.split('').each do |o| %>
-						<div class="flex justify-around neon-border neon-text w-1/2 text-xl mt-5 <%= @question.is_all_answer(@gp.game_id) ? (o == 'a' ? 'neon-green' : 'neon-red') : ('neon-pink') %>">
+						<div class="neon-border neon-text w-1/2 text-xl mt-5 <%= @question.is_all_answer(@gp.game_id) ? (o == 'a' ? 'neon-green' : 'neon-red') : ('neon-pink') %>">
 							<%= @question.get_answer(o) %>
 
+							<% if @question.is_all_answer(@gp.game_id) %>
+								[ <%= @question.count_answers(@gp.game_id, o) %> ]
+							<% end %>
 						</div>
 					<% end %>
 				</div>
