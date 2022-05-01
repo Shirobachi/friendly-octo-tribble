@@ -31,6 +31,9 @@
 
 en:
   activerecord:
+    attributes:
+      team:
+        quantity: "Quantity"
     errors:
       models:
         question:
