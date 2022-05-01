@@ -219,6 +219,8 @@ class GamesController < ApplicationController
 				:status => "rules"
 			)
 			@game_progress.save()
+
+			add_webhook_record(@GameProgress.id)
 			
 			prepare_game_vars
 		end
@@ -236,7 +238,8 @@ class GamesController < ApplicationController
 			:answer => params[:answer]
 		)
 		@answer.save()
-		Game.find(params[:id]).game_progress.add_webhook_record
+
+		add_webhook_record(Game.find(params[:id]).game_progress.id)
 
 		# Redirect
 		respond_to do |format|
@@ -263,17 +266,18 @@ class GamesController < ApplicationController
 				format.html { redirect_to game_play_path(params[:id]) }
 				format.json { head :no_content }
 			end
-			
-			return
+
+			return # Do not change q if that was break or scoreboard
 		end
 		
+
 		if ! gp.first.get_next_question.nil?
 			gp.first.update(
 				:question_id => gp.first.get_next_question
 			)
 			gp.first.save()
 
-			gp.first.add_webhook_record
+			add_webhook_record(gp.first)
 
 			# Redirect
 			respond_to do |format|
@@ -303,6 +307,8 @@ class GamesController < ApplicationController
 		gp.first.update(:status => "scoreboard")
 		gp.first.save()
 
+		add_webhook_record(gp.first)
+
 		# Redirect
 		respond_to do |format|
 			format.html { redirect_to game_play_path(params[:id]) }
@@ -320,13 +326,17 @@ class GamesController < ApplicationController
 		gp.first.update(:status => "break")
 		gp.first.save()
 
-		gp.first.add_webhook_record
+		add_webhook_record(gp.first)
 
 		# Redirect
 		respond_to do |format|
 			format.html { redirect_to game_play_path(params[:id]) }
 			format.json { head :no_content }
 		end
+	end
+
+	def add_webhook_record(gp_id)
+		gp_id.add_webhook_record
 	end
 
 	def play_show_question
@@ -338,6 +348,8 @@ class GamesController < ApplicationController
 
 		gp.first.update(:status => "play")
 		gp.first.save()
+		
+		add_webhook_record(gp.first)
 
 		# Redirect
 		respond_to do |format|
