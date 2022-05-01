@@ -1,13 +1,28 @@
 <div class="w-10/12 flex flex-col mt-14 mx-auto">
 	<%# QUESTION %>
-	<div class="text-4xl border border-white p-3"> <%= @question.question %> </div>
+	<div class="text-4xl border border-white p-3"> 
+		<% if uri_i?(@question.question) %>
+			<div class="flex justify-center">
+				<img src="<%= @question.question %>" alt="">
+			</div>
+		<% else %>
+			<%= @question.question %> 
+		<% end %>
+	</div>
+	
 	<%# ANSWERS %>
 	<div class="flex flex-wrap mt-2">
 
 		<% letters = "ABCD" %>
 		<% @question.order.split('').each_with_index do |o, i| %>
 			<div class="border bottom-white w-1/2">
-				<%= letters[i] %>. <%= @question.get_answer(o) %>
+				<% if uri_i?(@question.question) %>
+					<div class="flex justify-center">
+						<img src="<%= @question.get_answer(o) %>" class="w-1/2" alt="">
+					</div>
+				<% else %>
+					<%= letters[i] %>. <%= @question.get_answer(o) %>
+				<% end %>
 			</div>
 		<% end %>
 	</div>

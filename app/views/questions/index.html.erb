@@ -18,7 +18,13 @@
 			<% @questions.each do |q| %>
 				<tr>
 					<td class="w-1/3 text-left py-3 px-4"><%= q.id%></td>
-					<td class="w-1/3 text-left py-3 px-4"> <%= q.question %> </td>
+					<td class="w-1/3 text-left py-3 px-4"> 
+						<% if uri_i?(q.question) %>
+							<img src="<%= q.question %>" alt="<%= q.question %>" class="w-full h-auto">
+						<% else %>
+							<%= q.question %> 
+						<% end %>
+					</td>
 					<td class="w-1/3 text-left py-3 px-4"> <%= q.points %> / <%= q.time %>s.</td>
 					<td class="text-left py-3 px-4">
 						<div class="flex space-x-2">
