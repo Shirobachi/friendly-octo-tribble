@@ -92,3 +92,28 @@ body{
   background-color: var(--clr-neon);
   color: #fff;
 }
+
+.neon-border{
+		border: 0.2rem solid #fff;
+		border-radius: 1.5rem;
+		padding: 0.4em;
+		box-shadow: 0 0 .2rem #fff,
+								0 0 .2rem #fff,
+								0 0 2rem var(--clr-neon),
+								0 0 0.8rem var(--clr-neon),
+								0 0 2.8rem var(--clr-neon),
+								inset 0 0 1.3rem var(--clr-neon);
+}
+
+.neon-text {
+	color: #fff;
+  text-shadow:
+		0 0 4px var(--clr-neon),
+		0 0 11px var(--clr-neon),
+		0 0 19px var(--clr-neon),
+		0 0 40px var(--clr-neon),
+		0 0 80px var(--clr-neon),
+		0 0 90px var(--clr-neon),
+		0 0 100px var(--clr-neon),
+		0 0 150px var(--clr-neon);
+}
