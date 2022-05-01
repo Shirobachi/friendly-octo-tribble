@@ -29,8 +29,8 @@ class Question < ApplicationRecord
 		end
 	end
 
-	def get_order
-		order = "abcs"
+	def order
+		order = "abcd"
 
 		hash = self.id.hash()
 
