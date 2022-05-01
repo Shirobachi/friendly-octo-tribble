@@ -246,15 +246,25 @@ class GamesController < ApplicationController
 	end
 
 	def play_next
+		# Get game_progress
 		gp = GameProgress.where(
 			:game_id => params[:id],
 		).where.not(
 			:status => "done"
 		)
 
+		# Change status to play
 		if gp.first.status != "play"
 			gp.first.update(:status => "play")
 			gp.first.save()
+
+			# Redirect
+			respond_to do |format|
+				format.html { redirect_to game_play_path(params[:id]) }
+				format.json { head :no_content }
+			end
+			
+			return
 		end
 		
 		if ! gp.first.get_next_question.nil?
