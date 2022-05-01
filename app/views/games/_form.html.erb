@@ -1,15 +1,16 @@
+<% if game.errors.any? %>
+	<div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
+		<p class="font-bold"><%= t('toast.wrong')%></p>
+			<% game.errors.each do |error| %>
+				<p class="text-sm">
+					<%= error.full_message %>
+				</p>
+			<% end %>
+		</div>
+	</div>
+<% end %>
+
 <%= form_with(model: game) do |form| %>
-  <% if game.errors.any? %>
-		<div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
-			<p class="font-bold"><%= t('toast.wrong')%></p>
-        <% game.errors.each do |error| %>
-					<p class="text-sm">
-						<%= error.full_message %>
-					</p>
-        <% end %>
-			</div>
-    </div>
-  <% end %>
 	
 	<div class="mt-5 flex flex-col space-y-4">
 		<div>
