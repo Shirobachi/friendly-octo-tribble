@@ -36,8 +36,43 @@
 						<%= rule.orderID %>. <%= rule.content %>
 					</div>
 				<% end %>
-			<% else %>
+			<% elsif @gp.status == "break" %>
+				<% if @teamScores && @teamScores.length >= 3 %>
+					<div class="flex mb-10">
+						<% @teamScores.each_with_index do |t, i| %>
+							<% if i == 1 %>
+								<div class="w-1/3 order-1">
+							<% elsif i == @teamScores.length / 2 +1 %>
+								</div> <div class="w-1/3 order-3">
+							<% elsif i == @teamScores.length %>
+								</div>
+							<% end %>
 
+							<% if i == 0 %>
+								<div class="w-1/3 order-2">
+									<p class="neon-text neon-green mb-2 text-xl">
+										<%= i+1 %>. <%= t.name %>: <%= t.bestScore %> points!
+									</p>
+									<% if t.linkToPhoto %>
+										<%= image_tag t.linkToPhoto, class: 'w-full' %>
+									<% end %>
+								</div>
+							<% else %>
+								<p class="text-lg">
+									<%= i + 1%>. <%= t.name %>: <%= t.bestScore %> points<br>
+								</p>
+							<% end %>
+
+						<% end %>
+					</div>
+				<% else %>
+					<div class="neon neon-text neon-light-blue mb-10">Break time</div>
+				<% end %>
+
+			<% elsif @gp.status == "scoreboard" %>
+				scoreboard
+			<% else %>
+				else
 			<% end %>
 	<% end %>
 	</div>
@@ -63,13 +98,8 @@
 				dataType: 'json',
 				success: function(data) {
 					// if data.webhooks > 0, refresh page
-					if (data.webhooks > 0){
-						console.log('refresh');
-						// wait
-						setTimeout(function() {
-							location.reload();
-						}, 1000);
-					}
+					if (data.webhooks > 0)
+						location.reload();
 			}});
 		}, 1000);
 	});

@@ -188,6 +188,11 @@ class GamesController < ApplicationController
 			end
 		end
 		@questions_remaining = @questions.count - @questions_done
+
+		# if status is break
+		if @gp.status == "break"
+			@teamScores = Team.all.order(:bestScore => :desc).limit(20)
+		end
 	end
 
 	def play
@@ -220,7 +225,7 @@ class GamesController < ApplicationController
 			)
 			@game_progress.save()
 
-			add_webhook_record(@GameProgress.id)
+			add_webhook_record(@game_progress.id)
 			
 			prepare_game_vars
 		end
