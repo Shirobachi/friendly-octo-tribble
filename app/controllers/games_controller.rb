@@ -328,10 +328,6 @@ class GamesController < ApplicationController
 			format.json { head :no_content }
 		end
 	end
-
-	def test
-		render plain: Question.all().first.get_order
-	end
 	
 	private
 	# Use callbacks to share common setup or constraints between actions.
