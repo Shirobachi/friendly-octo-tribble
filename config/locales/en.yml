@@ -86,7 +86,7 @@ en:
       question: "Question"
       action: "Action"
     scoreboard:
-      title: "Scoreboard"
+      title: "Teams"
       new: "Add new team"
       noTeams: "No teams yet"
       edit: "Edit Team"
