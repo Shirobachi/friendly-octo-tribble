@@ -5,7 +5,8 @@
     <%= render "form", question: @question %>
 
     <div class="flex justify-center items-center py-8 space-x-5">
-      <%= link_to t('back.toQuestion'), questions_path, class: "neon neon-gray" %>
+			<%= link_to t('back.toQuestion'), questions_path, class: "neon neon-gray" %>
+			<%= button_to t('menu.questions.delete'), @question, method: :delete, class: "neon neon-red" %>
     </div>
 
   </div>
