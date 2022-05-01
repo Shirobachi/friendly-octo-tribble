@@ -1,10 +1,14 @@
-<p class="text-3xl mt-5"><%= t('menu.rules.edit')%></p>
+<div class="row">
+  <div class="col">
+		<p class="text-3xl mt-5"><%= t('menu.rules.edit')%></p>
 
-<%= render "form", rule: @rule %>
+		<%= render "form", rule: @rule %>
 
-<br>
+		<br>
 
-<div class="flex justify-center space-x-3">
-  <%= link_to t('back.toRules'), rules_path, class: "neon neon-gray" %>
-  <%= button_to t('menu.rules.delete'), @rule, method: :delete, class: "neon neon-red" %>
+		<div class="flex justify-center space-x-3">
+			<%= link_to t('back.toRules'), rules_path, class: "neon neon-gray" %>
+			<%= button_to t('menu.rules.delete'), @rule, method: :delete, class: "neon neon-red" %>
+		</div>
+	</div>
 </div>

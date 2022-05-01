@@ -1,9 +1,13 @@
-<p class="text-3xl mt-5">Edit game</p>
+<div class="row">
+  <div class="col">
+		<p class="text-3xl mt-5">Edit game</p>
 
-<%= render "form", game: @game %>
+		<%= render "form", game: @game %>
 
-<br>
-<div class="flex justify-center space-x-3">
-  <%= link_to "Back to games", games_path, class: "neon neon-gray" %>
-  <%= button_to "Destroy this game", @game, method: :delete, class: "neon neon-red" %>
+		<br>
+		<div class="flex justify-center space-x-3">
+			<%= link_to "Back to games", games_path, class: "neon neon-gray" %>
+			<%= button_to "Destroy this game", @game, method: :delete, class: "neon neon-red" %>
+		</div>
+	</div>
 </div>
