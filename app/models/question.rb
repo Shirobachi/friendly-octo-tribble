@@ -75,4 +75,9 @@ class Question < ApplicationRecord
 		).count
 	end
 
+	def toggle_active
+		self.active = !self.active
+		self.save
+	end
+
 end
