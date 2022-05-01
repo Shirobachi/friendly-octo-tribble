@@ -17,7 +17,7 @@ class QuestionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create question" do
     assert_difference("Question.count") do
-      post questions_url, params: { question: { ansA: @question.ansA, ansB: @question.ansB, ansC: @question.ansC, ansD: @question.ansD, justification: @question.justification, points: @question.points, question: @question.question, questionUrl: @question.questionUrl, time: @question.time } }
+      post questions_url, params: { question: { ansA: @question.ansA, ansB: @question.ansB, ansC: @question.ansC, ansD: @question.ansD, justification: @question.justification, points: @question.points, question: @question.question, justificationUrl: @question.justificationUrl, time: @question.time } }
     end
 
     assert_redirected_to question_url(Question.last)
@@ -34,7 +34,7 @@ class QuestionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update question" do
-    patch question_url(@question), params: { question: { ansA: @question.ansA, ansB: @question.ansB, ansC: @question.ansC, ansD: @question.ansD, justification: @question.justification, points: @question.points, question: @question.question, questionUrl: @question.questionUrl, time: @question.time } }
+    patch question_url(@question), params: { question: { ansA: @question.ansA, ansB: @question.ansB, ansC: @question.ansC, ansD: @question.ansD, justification: @question.justification, points: @question.points, question: @question.question, justificationUrl: @question.justificationUrl, time: @question.time } }
     assert_redirected_to question_url(@question)
   end
 

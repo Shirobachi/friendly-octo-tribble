@@ -8,7 +8,7 @@ one:
   ansD: MyString
   points: 1
   time: 1
-  questionUrl: MyString
+  justificationUrl: MyString
   justification: MyString
 
 two:
@@ -19,5 +19,5 @@ two:
   ansD: MyString
   points: 1
   time: 1
-  questionUrl: MyString
+  justificationUrl: MyString
   justification: MyString

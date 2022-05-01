@@ -8,7 +8,7 @@ class CreateQuestions < ActiveRecord::Migration[7.0]
       t.string :ansD
       t.integer :points
       t.integer :time
-      t.string :questionUrl
+      t.string :justificationUrl
       t.string :justification
 
       t.timestamps

@@ -48,8 +48,8 @@ en:
               blank: "field can't be empty"
             ansD:
               blank: "field can't be empty"
-            questionUrl:
-              invalid: "must be a URL for GIF, JPG or PNG image."
+            justificationUrl:
+              invalid: "must be valid url"
         team:
           attributes:
             name:

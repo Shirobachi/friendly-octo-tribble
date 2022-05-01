@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_01_120301) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_01_172522) do
   create_table "answers", force: :cascade do |t|
     t.integer "game_id", null: false
     t.integer "question_id", null: false
@@ -66,7 +66,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_01_120301) do
     t.string "ansD", null: false
     t.integer "points", default: 1
     t.integer "time", default: 120
-    t.string "questionUrl"
+    t.string "justificationUrl"
     t.string "justification"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

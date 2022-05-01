@@ -21,7 +21,7 @@ class QuestionsTest < ApplicationSystemTestCase
     fill_in "Justification", with: @question.justification
     fill_in "Points", with: @question.points
     fill_in "Question", with: @question.question
-    fill_in "Questionurl", with: @question.questionUrl
+    fill_in "justificationUrl", with: @question.justificationUrl
     fill_in "Time", with: @question.time
     click_on "Create Question"
 
@@ -40,7 +40,7 @@ class QuestionsTest < ApplicationSystemTestCase
     fill_in "Justification", with: @question.justification
     fill_in "Points", with: @question.points
     fill_in "Question", with: @question.question
-    fill_in "Questionurl", with: @question.questionUrl
+    fill_in "justificationUrl", with: @question.justificationUrl
     fill_in "Time", with: @question.time
     click_on "Update Question"
 
