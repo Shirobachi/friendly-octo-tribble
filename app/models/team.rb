@@ -1,6 +1,8 @@
 class Team < ApplicationRecord
 	validates :name, presence: true
 	validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
+	validates :linkToPhoto, allow_blank: true, format: { with: %r{\.(gif|jpg|png|jpeg|bmp|tiff|tif|svg)\Z}i }
+
 
 	has_many :game_teams
 	has_many :games, through: :game_teams
