@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 	get 'games/:id/play/scoreboard' => 'games#play_scoreboard', as: :game_play_scoreboard
 	get 'games/:id/play/showQuestion' => 'games#play_show_question', as: :game_play_show_question
 
+	get 'webhook' => 'games#webhook', as: :game_webhook
+
 	# https://guides.rubyonrails.org/routing.html
 
 	root "games#game"

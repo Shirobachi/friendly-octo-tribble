@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_30_153906) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_01_120301) do
   create_table "answers", force: :cascade do |t|
     t.integer "game_id", null: false
     t.integer "question_id", null: false
@@ -89,6 +89,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_30_153906) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "webhooks", force: :cascade do |t|
+    t.integer "game_progress_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_progress_id"], name: "index_webhooks_on_game_progress_id"
+  end
+
   add_foreign_key "answers", "games"
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "teams"
@@ -98,4 +105,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_30_153906) do
   add_foreign_key "game_questions", "questions"
   add_foreign_key "game_teams", "games"
   add_foreign_key "game_teams", "teams"
+  add_foreign_key "webhooks", "game_progresses"
 end

@@ -20,4 +20,15 @@ class GameProgress < ApplicationRecord
 			return @question.id
 		end
 	end
+
+	def clear_webhooks
+		# Clear webhooks
+		Webhook.where(:game_progress_id => self.id).destroy_all
+	end
+
+	def add_webhook_record
+		# Add webhook record
+		Webhook.create(:game_progress_id => self.id)
+	end
+
 end

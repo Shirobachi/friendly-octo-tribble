@@ -236,6 +236,7 @@ class GamesController < ApplicationController
 			:answer => params[:answer]
 		)
 		@answer.save()
+		Game.find(params[:id]).game_progress.add_webhook_record
 
 		# Redirect
 		respond_to do |format|
@@ -262,6 +263,8 @@ class GamesController < ApplicationController
 			)
 			gp.first.save()
 
+			gp.first.add_webhook_record
+
 			# Redirect
 			respond_to do |format|
 				format.html { redirect_to game_play_path(params[:id]) }
@@ -286,6 +289,8 @@ class GamesController < ApplicationController
 		)
 
 		gp.first.update(:status => "scoreboard")
+
+		gp.first.update(:status => "scoreboard")
 		gp.first.save()
 
 		# Redirect
@@ -304,6 +309,8 @@ class GamesController < ApplicationController
 
 		gp.first.update(:status => "break")
 		gp.first.save()
+
+		gp.first.add_webhook_record
 
 		# Redirect
 		respond_to do |format|
@@ -329,6 +336,16 @@ class GamesController < ApplicationController
 		end
 	end
 	
+	def webhook
+
+		w = Webhook.all().count
+
+		render json: {
+			"webhooks" => w
+		}
+
+	end
+
 	private
 	# Use callbacks to share common setup or constraints between actions.
 	def set_game

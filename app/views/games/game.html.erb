@@ -1,3 +1,5 @@
+<% @gp.clear_webhooks %>
+
 <div class="container flex flex-col items-center justify-center mt-10">
 	<div id="logo">
 		<%= image_tag 'logo.png', alt: 'icon' %>
@@ -48,3 +50,29 @@
 	</div>
 
 </div>
+
+<script>
+
+	// on load
+	$(document).ready(function() {
+		// every second 
+		setInterval(function() {
+			// get game
+			$.ajax({
+				url: '<%= game_webhook_url %>',
+				type: 'GET',
+				dataType: 'json',
+				success: function(data) {
+					// if data.webhooks > 0, refresh page
+					if (data.webhooks > 0){
+						console.log('refresh');
+						// wait
+						setTimeout(function() {
+							location.reload();
+						}, 1000);
+					}
+			}});
+		}, 1000);
+	});
+
+</script>
