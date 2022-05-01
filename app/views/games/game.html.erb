@@ -1,5 +1,3 @@
-<% @gp.clear_webhooks %>
-
 <div class="container flex flex-col items-center justify-center mt-10">
 	<div id="logo">
 		<%= image_tag 'logo.png', alt: 'icon' %>
@@ -13,6 +11,7 @@
 			</p>
 		</div>
 		<% else %>
+			<% @gp.clear_webhooks %>
 			<% if @gp.status == "play" %>
 				<div class="neon-border neon-text neon-tail text-4xl text-green-600">
 					<%= @question.question %>
