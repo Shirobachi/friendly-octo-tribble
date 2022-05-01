@@ -48,8 +48,8 @@ en:
               blank: "field can't be empty"
             ansD:
               blank: "field can't be empty"
-            questionURL:
-              invalid: "URL is invalid"
+            questionUrl:
+              invalid: "must be a URL for GIF, JPG or PNG image."
         team:
           attributes:
             name:
@@ -68,7 +68,6 @@ en:
           attributes:
             name:
               taken: "is already taken"
-       
   menu:
     game:
       title: "Games"

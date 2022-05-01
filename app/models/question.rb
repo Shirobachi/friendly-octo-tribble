@@ -6,6 +6,8 @@ class Question < ApplicationRecord
 	validates :ansD, presence: true
 	validates :points, presence: true
 	validates :time, presence: true
+	validates :questionUrl, allow_blank: true, format: { with: %r{\.(gif|jpg|png)\Z}i }
+	validates :justification, allow_blank: true, format: { with: %r{http[s]?:\/\/(www\.)?(.*)?\/?(.)*}i }
 
 	has_many :game_questions
 	has_many :games, through: :game_questions
