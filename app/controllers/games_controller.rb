@@ -152,7 +152,26 @@ class GamesController < ApplicationController
 		end
 	end
 
-	def prepare_game_vars
+	def game
+		@gp = GameProgress.where.not(
+			:status => 'done'
+		).first
+
+		if ! @gp.nil?
+			prepare_game_vars(@gp.game_id)
+			
+			if @gp.status == "rules"
+				@rules = Rule.all().order(:orderID)
+			end
+
+		end
+
+	end 
+
+	def prepare_game_vars(game_id = nil)
+		if ! game_id.nil?
+			params[:id] = game_id
+		end
 		@gp = GameProgress.find_by(:game_id => params[:id])
 
 		@question = Question.find(@gp.question_id)
