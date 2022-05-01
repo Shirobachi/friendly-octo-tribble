@@ -164,7 +164,7 @@ class GamesController < ApplicationController
 
 		@questions_done = 0
 		@questions.each do |q|
-			if q.is_any_answer(@gp.game_id)
+			if q.is_all_answer(@gp.game_id)
 				@questions_done += 1 
 			end
 		end

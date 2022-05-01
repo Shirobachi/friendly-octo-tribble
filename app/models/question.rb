@@ -12,7 +12,7 @@ class Question < ApplicationRecord
 
 	has_one :game_progress
 	
-	def is_any_answer(game_id)
+	def is_all_answer(game_id)
 		answers = Answer.where(
 			:game_id => game_id,
 			:question_id => self.id,
