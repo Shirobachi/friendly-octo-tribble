@@ -76,13 +76,19 @@
 						<%= t['team'].name %> <%= t['score'] %> points <br>
 					</p>
 				<% end %>
-
-				
 			<% else %>
-				else
+				Error status
 			<% end %>
 	<% end %>
 	</div>
+
+	<% if @question.is_all_answer(@gp.game_id) %>
+		<% if @question.justification %>
+			<div class="mb-10 neon neon-border neon-tail w-full">
+				<%= @question.justification %>
+			</div>
+		<% end %>
+	<% end %>
 
 	<div id="footer" class="neon-border neon-yellow neon-text w-full">
 		<p class="p-4">
@@ -93,7 +99,6 @@
 </div>
 
 <script>
-
 	// on load
 	$(document).ready(function() {
 		// every second 
