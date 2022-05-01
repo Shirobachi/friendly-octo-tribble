@@ -59,6 +59,12 @@ class GamesController < ApplicationController
 
 	# PATCH/PUT /games/1 or /games/1.json
 	def update
+		# check if no name is given
+		if params[:game][:name].empty?
+			# replce with date DD-MM-YYYY
+			params[:game][:name] = Date.today.strftime("%d-%m-%Y")
+		end
+		
 		respond_to do |format|
 			if @game.update(game_params)
 				format.html { redirect_to actions: "index", notice: t('succed.game.update') }
