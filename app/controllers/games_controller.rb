@@ -97,6 +97,11 @@ class GamesController < ApplicationController
 		@name = @game.name
 		@questions = Question.all.order(:used)
 
+		if @game.status == "done" || @game.status == "running"
+			redirect_to games_path, notice: "This game is already running (or finished) and cannot be edit!"
+			return
+		end
+
 		# get all possible questions points uniq
 		@points = @questions.map { |q| q.points }.uniq
 	end
@@ -149,6 +154,11 @@ class GamesController < ApplicationController
 		@game = Game.find(@game_id)
 		@name = @game.name
 		@teams = Team.all.order(:orderID)
+		
+		if @game.status == "done" || @game.status == "running"
+			redirect_to games_path, notice: "This game is already running (or finished) and cannot be edit!"
+			return
+		end
 	end
 
 	def toggle_team
