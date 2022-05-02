@@ -165,7 +165,7 @@
 			}});
 		}, 500);
 
-		let time = <%= @question.time if @question %>;
+		let time = <%= @question ? @question.time : 0  %>;
 		updateTime(time);
 
 		function updateTime(seconds){
