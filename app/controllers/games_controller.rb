@@ -283,9 +283,12 @@ class GamesController < ApplicationController
 		)
 
 		# Change status to play
-		if gp.first.status != "play"
+		if gp.first.status != "play" && gp.first.status != "done"
 			gp.first.update(:status => "play")
 			gp.first.save()
+
+			# Send webhook
+			add_webhook_record(gp.first.id)
 
 			# Redirect
 			respond_to do |format|
@@ -327,8 +330,6 @@ class GamesController < ApplicationController
 		).where.not(
 			:status => "done"
 		)
-
-		gp.first.update(:status => "scoreboard")
 
 		gp.first.update(:status => "scoreboard")
 		gp.first.save()
