@@ -61,7 +61,7 @@ class GamesController < ApplicationController
 		
 		respond_to do |format|
 			if @game.update(game_params)
-				format.html { redirect_to actions: "index", notice: t('succed.game.update') }
+				format.html { redirect_to games_path, notice: t('succed.game.update') }
 				format.json { render :show, status: :ok, location: @game }
 			else
 				format.html { render :edit, status: :unprocessable_entity }

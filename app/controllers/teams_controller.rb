@@ -38,7 +38,7 @@ class TeamsController < ApplicationController
   def update
     respond_to do |format|
       if @team.update(team_params)
-        format.html { redirect_to actions: "index", notice: t('succed.team.update') }
+        format.html { redirect_to questions_path, notice: t('succed.team.update') }
         format.json { render :show, status: :ok, location: @team }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class TeamsController < ApplicationController
     @team.destroy
 
     respond_to do |format|
-      format.html { redirect_to teams_url, notice: t('succed.team.delete') }
+      format.html { redirect_to actions: "index", notice: t('succed.team.delete') }
       format.json { head :no_content }
     end
   end
