@@ -76,8 +76,10 @@
 									<p class="neon-text neon-green mb-2 text-xl">
 										<%= i+1 %>. <%= t.name %>: <%= t.bestScore %> points!
 									</p>
-									<% if t.linkToPhoto %>
+									<% if uri_i?(t.linkToPhoto) %>
 										<%= image_tag t.linkToPhoto, class: 'w-full' %>
+									<% else %>
+										<%= image_tag 'winner.jpg', alt: 'icon' %>
 									<% end %>
 								</div>
 							<% else %>
