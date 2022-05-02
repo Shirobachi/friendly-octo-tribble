@@ -4,17 +4,20 @@
 	</div>
 
 	<div id="content" class="my-10 w-full">
+		<%# GAME IS NOT RUNNING YET %>
 		<% if @gp.nil? %>
 		<div class="neon-border neon-text neon-red text-4xl text-red-600">
 			<p class="p-20">
 				Not game found
 			</p>
 		</div>
+		<%# GAME IS RUNNING %>
 		<% else %>
 			<% @gp.clear_webhooks %>
+			<%# GAME %>
 			<% if @gp.status == "play" %>
-
 				<div class="flex justify-around space-x-10 mb-8">
+					<%# POINT & TIME %>
 					<div class='neon neon-border neon-green'>
 						<%= @question.points %> point
 					</div>
@@ -25,6 +28,8 @@
 						Time is up!
 					</div>
 				</div>
+
+				<%# QUESTION %>
 				<div class="neon-border neon-text neon-tail text-4xl text-green-600">
 					<% if uri_i?(@question.question) %>
 						<div class="flex justify-center">
@@ -35,6 +40,7 @@
 					<% end %>
 				</div>
 
+				<%# ANSWERS %>
 				<% letters = "ABCD" %>
 				<div class="flex mt-10 flex-wrap">
 					<% @question.order.split('').each_with_index do |o, i| %>
@@ -53,12 +59,14 @@
 					<% end %>
 				</div>
 
+			<%# NOT GAME IS PLAYING BUT RULES (GAME JUST STARTED) %>
 			<% elsif @gp.status == "rules" %>
 				<% @rules.each do |rule| %>
 					<div class="neon-border neon-text neon-green text-2xl text-green-600 m-5">
 						<%= rule.orderID %>. <%= rule.content %>
 					</div>
 				<% end %>
+			<%# BREAK %>
 			<% elsif @gp.status == "break" %>
 				<% if @teamScores && @teamScores.length >= 3 %>
 					<div class="flex mb-10">
@@ -94,6 +102,7 @@
 					<div class="neon neon-text neon-light-blue mb-10">Break time</div>
 				<% end %>
 
+			<%# SCOREBOARD %>
 			<% elsif @gp.status == "scoreboard" %>
 				<div class="neon neon-text neon-red mb-5">
 					<%= t('game.scoreboard') %>
@@ -107,6 +116,7 @@
 				Error status
 			<% end %>
 
+			<%# JUSTIFICATION %>
 			<% if @question.is_all_answer(@gp.game_id) && @question.justification %>
 				<% if ! @question.justification.empty? %>
 					<div class="my-10 neon neon-border neon-tail w-full">
@@ -114,7 +124,18 @@
 					</div>
 				<% end %>
 			<% end %>
-	<% end %>
+			
+			<%# GAME PROGRESS %>
+			<div class="mt-5 flex neon-border neon-pink">
+				<% for c in 1..@questions_done %>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="flex-1 bi bi-circle-fill text-green-500" viewBox="0 0 16 16"> <circle cx="8" cy="8" r="8"/> </svg>
+				<% end %>
+				<% for c in 1..@questions_remaining %>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="flex-1 bi bi-circle text-red-500" viewBox="0 0 16 16"> <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/> </svg>
+				<% end %>
+			</div>
+
+		<% end %>
 	</div>
 
 	<div id="footer" class="neon-border neon-yellow neon-text w-full">
