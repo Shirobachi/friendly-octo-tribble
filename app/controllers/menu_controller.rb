@@ -1,10 +1,4 @@
 class MenuController < ApplicationController
-  def index
-		
-  end
-
-	def misc
-	end
 	
 	def deactivate
 		questions = Question.where(
