@@ -13,6 +13,18 @@
 		<% else %>
 			<% @gp.clear_webhooks %>
 			<% if @gp.status == "play" %>
+
+				<div class="flex justify-around space-x-10 mb-8">
+					<div class='neon neon-border neon-green'>
+						<%= @question.points %> point
+					</div>
+					<div id='timer' class='neon neon-border neon-light-blue'>
+						<p class="inline-block" id="min"></p>:<p class="inline-block" id="sec"></p>
+					</div>
+					<div id="time-up" class="neon neon-border neon-red hidden">
+						Time is up!
+					</div>
+				</div>
 				<div class="neon-border neon-text neon-tail text-4xl text-green-600">
 					<% if uri_i?(@question.question) %>
 						<div class="flex justify-center">
@@ -128,6 +140,36 @@
 						window.location.href = '/lang/game/' + data.lang;
 			}});
 		}, 500);
+
+		let time = <%= @question.time %>;
+		updateTime(time);
+
+		function updateTime(seconds){
+			time = seconds;
+			$('#min').text(Math.floor(time / 60));
+			$('#sec').text(addZero(time % 60));
+		}
+
+		// add leading zero
+		function addZero(i) {
+			if (i < 10) {
+				i = "0" + i;
+			}
+			return i;
+		}
+
+		// countdown
+		let interval = setInterval(function() {
+			time--;
+			updateTime(time);
+
+			if (time == 0) {
+				clearInterval(interval);
+				$('#timer').hide();
+				$('#time-up').show();
+			}
+		}, 1000);
+	
 	});
 
 </script>
