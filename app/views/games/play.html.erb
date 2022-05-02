@@ -68,7 +68,7 @@
 
 	<%# BUTTONS %>
 	<div class="flex flex-col md:flex-row justify-center items-center py-8 space-y-3 md:space-y-0 md:space-x-5">
-			<%= link_to @gp.get_next_question ? ( @gp.status != 'play' ? "Return to game" : "Next question") : "Finish the game" , game_play_next_path(@gp.game_id), class: "neon neon-yellow"%>
+			<%= link_to @gp.get_next_question ? ( @gp.status != 'play' ? "Return to game" : "Next question") : (@gp.status == "rules" ? "Start the game" : "Finish the game") , game_play_next_path(@gp.game_id), class: "neon neon-yellow"%>
 
 			<% if @question.justification %>
 				<%= link_to "Justification", @question.justification, class: "neon neon-green", :target => "_blank" %>
@@ -78,9 +78,5 @@
 			
 			<%= link_to "Break", game_play_break_path(@gp), class: "neon neon-light-blue"%>
 			<%= link_to "Scoreboard", game_play_scoreboard_path(@gp), class: "neon neon-pink"%>
-
-			<% if @gp.status == "rules" %>
-				<%= link_to "Play", game_play_show_question_path(@gp), class: "neon neon-green"%>
-			<% end %>
 	</div>
 </div>
