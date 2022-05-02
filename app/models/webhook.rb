@@ -3,7 +3,12 @@ class Webhook < ApplicationRecord
 
 	def self.clear_last_weebhook
 		last_gp_id = GameProgress.all.order(:id).last.id
-		Webhook.where(game_progress_id: last_gp_id).last.destroy
+		w = Webhook.where(game_progress_id: last_gp_id)
+
+		if w.count > 0
+			w.last.destroy
+		end
+
 	end
 
 end
