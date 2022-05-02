@@ -77,6 +77,22 @@ en:
       name: "Name"
       status: "Status"
       actions: "Actions"
+      manage: "Manage questions"
+      draw: "Draw questions"
+      numberOfQuestions: "Number of questions"
+      manual: "Add questions manually"
+      edit: "Edit game"
+      delete: "Delete this game"
+
+      #manage questions
+      questionTitle: "Title"
+      usage: "Usage"
+      points: "Points/Time"
+      #manage teams
+      teamTitle: "Manage Teams"
+      teamName: "Name"
+      teamQuantity: "Quantity"
+
     questions:
       title: "Questions set"
       new: "Add new question"
@@ -123,7 +139,7 @@ en:
       delete: "Team deleted" 
 
   actions:
-    rename: "Rename"
+    rename: "Edit"
     question: "Manage questions to game"
     teams: "Manage teams take part in game"
 
@@ -135,6 +151,29 @@ en:
     toTeams: "Back to teams"
     toRules: "Back to rules"
 
+  placeholders:
+    #game
+    name: "Name (leave empty for using date)"  
+    #question
+    questionContent: "Question content"
+    ansa: "Answer A (correct)"
+    ansb: "Answer B"
+    ansc: "Answer C"
+    ansd: "Answer D"
+    urlToSource: "URL to source"
+    urlToJustification: "URL to justification"
+    score: "Score"
+    timeInSeconds: "Time in seconds"
+    #team
+    teamName: "Team's name"
+    linkToPhoto: "Link to photo"
+    quantity: "Quantity"
+    #rule
+    ruleContent: "Rule content"
+    orderID: "Order ID"
+
+  status:
+    configuring: "Configuringgggg"
 
   game: 
     scoreboard: "Scoreboard!"

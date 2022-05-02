@@ -13,45 +13,45 @@
 <%= form_with(model: question) do |form| %>
 	<div class="mt-5 flex flex-col space-y-4">
 			<div>
-				<%= form.text_field :question, class: "neon-green", placeholder: "Question content" %>
+				<%= form.text_field :question, class: "neon-green", placeholder: t('placeholders.questionContent') %>
 			</div>
 
 			<div>
-				<%= form.text_field :ansA, class: "neon-green",  placeholder: "Answer A (correct)" %>
+				<%= form.text_field :ansA, class: "neon-green",  placeholder: t('placeholders.ansa') %>
 			</div>
 
 			<div>
-				<%= form.text_field :ansB, class: "neon-green", placeholder: "Answer B" %>
+				<%= form.text_field :ansB, class: "neon-green", placeholder: t('placeholders.ansb') %>
 			</div>
 
 			<div>
-				<%= form.text_field :ansC, class: "neon-green", placeholder: "Answer C" %>
+				<%= form.text_field :ansC, class: "neon-green", placeholder: t('placeholders.ansc') %>
 			</div>
 
 			<div>
-				<%= form.text_field :ansD, class: "neon-green", placeholder: "Answer D" %>
+				<%= form.text_field :ansD, class: "neon-green", placeholder: t('placeholders.ansd') %>
 			</div>
 
 			<div class="flex justify-center translate-x-5 items-center">
-				<%= form.number_field :points, class: "neon-green", placeholder: "Score" %>
+				<%= form.number_field :points, class: "neon-green", placeholder: t('placeholders.score') %>
 				<div class="m-3">
-					<%= render :partial => 'shared/tooltip', locals: {m: 'Score' } %>
+					<%= render :partial => 'shared/tooltip', locals: {m: t('placeholders.score') } %>
 				</div>
 			</div>
 
 			<div class="flex justify-center translate-x-5 items-center">
-				<%= form.number_field :time, class: "neon-green", placeholder: "Time in seconds" %>
+				<%= form.number_field :time, class: "neon-green", placeholder: t('placeholders.timeInSeconds') %>
 				<div class="m-3">
-					<%= render :partial => 'shared/tooltip', locals: {m: 'Time in seconds' } %>
+					<%= render :partial => 'shared/tooltip', locals: {m: t('placeholders.timeInSeconds') } %>
 				</div>
 			</div>
 
 			<div>
-				<%= form.text_field :justificationUrl, class: "neon-green", placeholder: "URL to source" %>
+				<%= form.text_field :justificationUrl, class: "neon-green", placeholder: t('placeholders.urlToSource') %>
 			</div>
 
 			<div>
-				<%= form.text_field :justification, class: "neon-green", placeholder: "Justification" %>
+				<%= form.text_field :justification, class: "neon-green", placeholder: t('placeholders.urlToJustification') %>
 			</div>
 
 			<div>

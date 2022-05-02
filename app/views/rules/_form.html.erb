@@ -1,6 +1,6 @@
 <% if rule.errors.any? %>
 		<div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
-			<p class="font-bold">Something went wrong!</p>
+			<p class="font-bold"><%= t('toast.wrong') %></p>
         <% rule.errors.each do |error| %>
 					<p class="text-sm">
 						<%= error.full_message %>
@@ -14,11 +14,11 @@
 
 	<div class="mt-5 flex flex-col space-y-4">
 		<div>
-			<%= form.text_field :content, class: "neon-green", placeholder: "Rule's content" %>
+			<%= form.text_field :content, class: "neon-green", placeholder: t('placeholders.ruleContent') %>
 		</div>
 
 		<div>
-			<%= form.number_field :orderID, class: "neon-green", placeholder: "Order ID" %>
+			<%= form.number_field :orderID, class: "neon-green", placeholder: t('placeholders.orderID') %>
 		</div>
 
 		<div>
