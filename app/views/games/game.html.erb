@@ -143,7 +143,7 @@
 			}});
 		}, 500);
 
-		let time = <%= @question.time %>;
+		let time = <%= @question.time if @question %>;
 		updateTime(time);
 
 		function updateTime(seconds){
