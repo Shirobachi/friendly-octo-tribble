@@ -108,7 +108,7 @@
 			<% end %>
 
 			<% if @question.is_all_answer(@gp.game_id) %>
-				<% if ! @question.justification.empty? %>
+				<% if ! (@question.justification && @question.justification.empty?) %>
 					<div class="my-10 neon neon-border neon-tail w-full">
 						<%= @question.justification %>
 					</div>
