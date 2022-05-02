@@ -49,12 +49,23 @@ class QuestionsController < ApplicationController
 
   # DELETE /questions/1 or /questions/1.json
   def destroy
-    @question.destroy
+		@question_games = GameQuestion.where(question_id: @question.id)
+		@question_game_progresses = GameProgress.where(question_id: @question.id)
+		@question_answers = Answer.where(question_id: @question.id)
 
-    respond_to do |format|
-      format.html { redirect_to questions_url, notice: t('succed.question.delete') }
-      format.json { head :no_content }
-    end
+		if @question_games.count == 0 && @question_game_progresses.count == 0 && @question_answers.count == 0
+			@question.destroy
+
+			respond_to do |format|
+				format.html { redirect_to questions_url, notice: t('succed.question.delete') }
+				format.json { head :no_content }
+			end
+		else
+			respond_to do |format|
+				format.html { redirect_to questions_url, notice: "This question cannot be deleted!" }
+				format.json { head :no_content }
+			end
+		end
   end
 
 	def toggle_active

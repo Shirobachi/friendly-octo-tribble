@@ -72,11 +72,23 @@ class GamesController < ApplicationController
 
 	# DELETE /games/1 or /games/1.json
 	def destroy
-		@game.destroy
+		@game_questions = GameQuestion.where(:game_id => @game.id)
+		@game_answers = Answer.where(:game_id => @game.id)
+		@game_teams = GameTeam.where(:game_id => @game.id)
+		@game_progresses = GameProgress.where(:game_id => @game.id)
 
-		respond_to do |format|
-			format.html { redirect_to actions: 'index', notice: t('succed.game.delete') }
-			format.json { head :no_content }
+		if @game_questions.count == 0 && @game_answers.count == 0 && @game_teams.count == 0 && @game_progresses.count == 0
+			@game.destroy
+
+			respond_to do |format|
+				format.html { redirect_to games_path, notice: t('succed.game.delete') }
+				format.json { head :no_content }
+			end
+		else
+			respond_to do |format|
+				format.html { redirect_to games_path, notice: "This game cannot be deleted!" }
+				format.json { head :no_content }
+			end
 		end
 	end
 

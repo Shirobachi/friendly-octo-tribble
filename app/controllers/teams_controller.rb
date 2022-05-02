@@ -6,20 +6,12 @@ class TeamsController < ApplicationController
     @teams = Team.all
   end
 
-  # GET /teams/1 or /teams/1.json
-  def show
-  end
-
   # GET /teams/new
   def new
     @team = Team.new
   end
 
-  # GET /teams/1/edit
-  def edit
-  end
-
-  # POST /teams or /teams.json
+	# POST /teams or /teams.json
   def create
     @team = Team.new(team_params)
 
@@ -49,12 +41,22 @@ class TeamsController < ApplicationController
 
   # DELETE /teams/1 or /teams/1.json
   def destroy
-    @team.destroy
+		@team_answers = Answer.where(team_id: @team.id)
+		@team_games = GameTeam.where(team_id: @team.id)
 
-    respond_to do |format|
-      format.html { redirect_to actions: "index", notice: t('succed.team.delete') }
-      format.json { head :no_content }
-    end
+		if @team_answers.count == 0 && @team_games.count == 0
+			@team.destroy
+			
+			respond_to do |format|
+				format.html { redirect_to teams_path, notice: t('succed.team.delete') }
+				format.json { head :no_content }
+			end
+		else
+			respond_to do |format|
+				format.html { redirect_to teams_path, notice: "Cannot remove team who was take part game or is assign to one!" }
+				format.json { head :no_content }
+			end
+		end
   end
 
   private
