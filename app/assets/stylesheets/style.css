@@ -17,7 +17,7 @@ input[type=number], input[type=text]:focus, textarea:focus {
 }
 
 body{
-  background: url('https://imgur.com/sDaUA6G.jpg');
+  background: url('https://github.com/Shirobachi/friendly-octo-tribble/blob/30b880dc40f51077179d55e8e50859bfb3246779/app/assets/images/background.jpg?raw=true');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
