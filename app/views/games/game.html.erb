@@ -6,11 +6,12 @@
 	<div id="content" class="my-10 w-full">
 		<%# GAME IS NOT RUNNING YET %>
 		<% if @gp.nil? %>
-		<div class="neon-border neon-text neon-red text-4xl text-red-600">
-			<p class="p-20">
-				Not game found
-			</p>
-		</div>
+			<% Webhook.clear_last_weebhook %>
+			<div class="neon-border neon-text neon-red text-4xl text-red-600">
+				<p class="p-20">
+					Not game found
+				</p>
+			</div>
 		<%# GAME IS RUNNING %>
 		<% else %>
 			<% @gp.clear_webhooks %>

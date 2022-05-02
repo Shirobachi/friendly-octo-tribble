@@ -262,8 +262,6 @@ class GamesController < ApplicationController
 		)
 		@answer.save()
 
-		add_webhook_record(Game.find(params[:id]).game_progress.id)
-
 		# Redirect
 		respond_to do |format|
 			format.html { redirect_to game_play_path(params[:id]) }
@@ -323,6 +321,8 @@ class GamesController < ApplicationController
 
 			game = Game.find(gp.first.game_id)
 			game.update(:status => "finished")
+
+			add_webhook_record(gp.first.id)
 
 			redirect_to games_path, notice: "Game finished."
 		end
