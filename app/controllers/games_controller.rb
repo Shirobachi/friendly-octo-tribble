@@ -7,17 +7,9 @@ class GamesController < ApplicationController
 		@games = Game.all
 	end
 
-	# GET /games/1 or /games/1.json
-	def show
-	end
-
 	# GET /games/new
 	def new
 		@game = Game.new
-	end
-
-	# GET /games/1/edit
-	def edit
 	end
 
 	def check_if_game_is_ready
