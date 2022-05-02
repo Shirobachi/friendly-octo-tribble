@@ -304,17 +304,24 @@ class GamesController < ApplicationController
 		
 
 		if ! gp.first.get_next_question.nil?
-			gp.first.update(
-				:question_id => gp.first.get_next_question
-			)
-			gp.first.save()
+			if Question.find(gp.first.question_id).is_all_answer(gp.first.game_id)
+				gp.first.update(
+					:question_id => gp.first.get_next_question
+				)
+				gp.first.save()
 
-			add_webhook_record(gp.first.id)
+				add_webhook_record(gp.first.id)
 
-			# Redirect
-			respond_to do |format|
-				format.html { redirect_to game_play_path(params[:id]) }
-				format.json { head :no_content }
+				# Redirect
+				respond_to do |format|
+					format.html { redirect_to game_play_path(params[:id]) }
+					format.json { head :no_content }
+				end
+			else
+				respond_to do |format|
+					format.html { redirect_to game_play_path(params[:id]), notice: "You have to answer all questions before moving on." }
+					format.json { head :no_content }
+				end
 			end
 		else
 			gp.first.update(:status => "done")
