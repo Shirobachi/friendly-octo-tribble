@@ -18,10 +18,12 @@ class GamesController < ApplicationController
 		game_teams = GameTeam.where(:game_id => params[:id])
 
 		# check if both > 0
-		if game_questions.count > 0 && game_teams.count > 1
-			@game.update(:status => "ready")
-		else
-			@game.update(:status => "configuring")
+		if @game
+			if game_questions.count > 0 && game_teams.count > 1
+				@game.update(:status => "ready")
+			else
+				@game.update(:status => "configuring")
+			end
 		end
 
 		@game.save
