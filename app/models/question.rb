@@ -75,4 +75,22 @@ class Question < ApplicationRecord
 		).count
 	end
 
+	def toggle_active
+		self.active = !self.active
+		self.save
+	end
+
+	def pretty_time
+		m = self.time / 60
+		s = self.time % 60
+
+		# Add leading zero
+		if s < 10
+			s = "0" + s.to_s
+		end
+
+		return m.to_s + ":" + s.to_s
+
+	end
+
 end

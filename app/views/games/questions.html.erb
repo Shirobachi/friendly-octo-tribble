@@ -9,7 +9,7 @@
 	<%= form_with do |form| %>
 		<%= form.hidden_field :points, value: p %>
 		<%= form.hidden_field :game, value: @game.id %>
-		<%= form.number_field :quantity, class: "neon-green", placeholder: t('games.questions.smart.points', points: p), :required => true %>
+		<%= form.number_field :limit, class: "neon-green", placeholder: t('games.questions.smart.points', points: p), :required => true %>
 		<%= form.submit class: "neon neon-green" %>
 	<% end %>
 

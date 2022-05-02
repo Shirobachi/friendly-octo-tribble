@@ -1,0 +1,47 @@
+<div class="container"></div>
+	<div class="flex flex-col space-y-5">
+		<div>
+			<p class="text-3xl mt-5">
+				<%= t('menu.misc.question.smartDeactivate') %>
+				
+					<%= form_with url: menu_deactivate_path do |form| %>
+						<div class="flex flex-col justify-center items-center mt-5 space-y-3">
+							<%= form.number_field :used, 
+								class: "neon-red", 
+								placeholder: "Deactivate all questions used at least X times", 
+								min: 1,
+								:required => true 
+							%>
+							<%= form.submit 'Deactivate!', class: "neon neon-red" %>
+						</div>
+					<% end %>
+
+			</p>
+		</div>
+		<div>
+			<p class="text-3xl mt-5">
+				<%= t('menu.misc.question.smartActivate') %>
+				
+					<%= form_with url: menu_activate_path do |form| %>
+						<div class="flex flex-col justify-center items-center mt-5 space-y-3">
+							<%= form.number_field :used, 
+								class: "neon-green", 
+								placeholder: "Activate all questions used at most X times", 
+								:required => true 
+							%>
+							<%= form.submit 'Activate!', class: "neon neon-green" %>
+						</div>
+					<% end %>
+
+			</p>
+		</div>
+	</div>
+<<<<<<< HEAD
+</div>
+
+<div class="flex justify-center items-center py-8 space-x-5">
+	<%= link_to t('menu.questions.new'), new_question_path, class: "neon neon-green"%>
+	<%= link_to t('back.toMenu'), menu_path, class: "neon neon-gray"%>
+=======
+>>>>>>> d5be3e7f4fecc1ac25607a260c943f716861ba83
+</div>

@@ -10,6 +10,16 @@
 		<% end %>
 	</div>
 	
+	<%# time and points %>
+	<div class="flex">
+		<div class="w-1/2 text-center border">
+			<%= @question.points %> points!
+		</div>
+		<div class="w-1/2 text-center border">
+			<%= @question.pretty_time %>
+		</div>
+	</div>
+
 	<%# ANSWERS %>
 	<div class="flex flex-wrap mt-2">
 

@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
 
   # GET /questions or /questions.json
   def index
-    @questions = Question.all
+    @questions = Question.all.order(:active => :desc, :used => :asc)
   end
 
   # GET /questions/1 or /questions/1.json
@@ -56,6 +56,15 @@ class QuestionsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+	def toggle_active
+		Question.find(params[:question_id]).toggle_active
+
+		respond_to do |format|
+			format.html { redirect_to questions_path }
+			format.json { head :no_content }
+		end
+	end
 
   private
     # Use callbacks to share common setup or constraints between actions.

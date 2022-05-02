@@ -1,4 +1,4 @@
-<div class="container flex flex-col items-center justify-center mt-10">
+<div class="container flex flex-col items-center justify-center mt-10 v-screen">
 	<div id="logo">
 		<%= image_tag 'logo.png', alt: 'icon' %>
 	</div>
@@ -13,6 +13,18 @@
 		<% else %>
 			<% @gp.clear_webhooks %>
 			<% if @gp.status == "play" %>
+
+				<div class="flex justify-around space-x-10 mb-8">
+					<div class='neon neon-border neon-green'>
+						<%= @question.points %> point
+					</div>
+					<div id='timer' class='neon neon-border neon-light-blue'>
+						<p class="inline-block" id="min"></p>:<p class="inline-block" id="sec"></p>
+					</div>
+					<div id="time-up" class="neon neon-border neon-red hidden">
+						Time is up!
+					</div>
+				</div>
 				<div class="neon-border neon-text neon-tail text-4xl text-green-600">
 					<% if uri_i?(@question.question) %>
 						<div class="flex justify-center">
@@ -64,8 +76,10 @@
 									<p class="neon-text neon-green mb-2 text-xl">
 										<%= i+1 %>. <%= t.name %>: <%= t.bestScore %> points!
 									</p>
-									<% if t.linkToPhoto %>
+									<% if uri_i?(t.linkToPhoto) %>
 										<%= image_tag t.linkToPhoto, class: 'w-full' %>
+									<% else %>
+										<%= image_tag 'winner.jpg', alt: 'icon' %>
 									<% end %>
 								</div>
 							<% else %>
@@ -81,7 +95,9 @@
 				<% end %>
 
 			<% elsif @gp.status == "scoreboard" %>
-				<div class="neon neon-text neon-red mb-5">Scoreboard</div>
+				<div class="neon neon-text neon-red mb-5">
+					<%= t('game.scoreboard') %>
+				</div>
 				<% @team_scoreboard.each do |t| %>
 					<p class="text-lg neon-text neon-green">
 						<%= t['team'].name %> <%= t['score'] %> points <br>
@@ -90,16 +106,16 @@
 			<% else %>
 				Error status
 			<% end %>
+
+			<% if @question.is_all_answer(@gp.game_id) %>
+				<% if ! @question.justification.empty? %>
+					<div class="my-10 neon neon-border neon-tail w-full">
+						<%= @question.justification %>
+					</div>
+				<% end %>
+			<% end %>
 	<% end %>
 	</div>
-
-	<% if @question.is_all_answer(@gp.game_id) %>
-		<% if @question.justification %>
-			<div class="mb-10 neon neon-border neon-tail w-full">
-				<%= @question.justification %>
-			</div>
-		<% end %>
-	<% end %>
 
 	<div id="footer" class="neon-border neon-yellow neon-text w-full">
 		<p class="p-4">
@@ -122,9 +138,40 @@
 				success: function(data) {
 					// if data.webhooks > 0, refresh page
 					if (data.webhooks > 0)
-						location.reload();
+						// redirect to /lang/game/ {data.lang}
+						window.location.href = '/lang/game/' + data.lang;
 			}});
+		}, 500);
+
+		let time = <%= @question.time if @question %>;
+		updateTime(time);
+
+		function updateTime(seconds){
+			time = seconds;
+			$('#min').text(Math.floor(time / 60));
+			$('#sec').text(addZero(time % 60));
+		}
+
+		// add leading zero
+		function addZero(i) {
+			if (i < 10) {
+				i = "0" + i;
+			}
+			return i;
+		}
+
+		// countdown
+		let interval = setInterval(function() {
+			time--;
+			updateTime(time);
+
+			if (time == 0) {
+				clearInterval(interval);
+				$('#timer').hide();
+				$('#time-up').show();
+			}
 		}, 1000);
+	
 	});
 
 </script>

@@ -59,6 +59,12 @@ class GamesController < ApplicationController
 
 	# PATCH/PUT /games/1 or /games/1.json
 	def update
+		# check if no name is given
+		if params[:game][:name].empty?
+			# replce with date DD-MM-YYYY
+			params[:game][:name] = Date.today.strftime("%d-%m-%Y")
+		end
+		
 		respond_to do |format|
 			if @game.update(game_params)
 				format.html { redirect_to actions: "index", notice: t('succed.game.update') }
@@ -110,9 +116,12 @@ class GamesController < ApplicationController
 	end	
 
 	def smart_questions
-
 		# Get question with point params[:points] and not used in this game
-		@questions = Question.where(points: params[:points]).order(:used).limit(params[:limit])
+		@questions = Question.where(
+			points: params[:points],
+			active: true
+		).order(:used).limit(params[:limit]).to_a
+
 		game_id = params[:game]
 		game_questions = GameQuestion.where(:game_id => game_id)
 		@questions = @questions - game_questions.map { |q| q.question }
@@ -277,9 +286,12 @@ class GamesController < ApplicationController
 		)
 
 		# Change status to play
-		if gp.first.status != "play"
+		if gp.first.status != "play" && gp.first.status != "done"
 			gp.first.update(:status => "play")
 			gp.first.save()
+
+			# Send webhook
+			add_webhook_record(gp.first.id)
 
 			# Redirect
 			respond_to do |format|
@@ -292,17 +304,24 @@ class GamesController < ApplicationController
 		
 
 		if ! gp.first.get_next_question.nil?
-			gp.first.update(
-				:question_id => gp.first.get_next_question
-			)
-			gp.first.save()
+			if Question.find(gp.first.question_id).is_all_answer(gp.first.game_id)
+				gp.first.update(
+					:question_id => gp.first.get_next_question
+				)
+				gp.first.save()
 
-			add_webhook_record(gp.first.id)
+				add_webhook_record(gp.first.id)
 
-			# Redirect
-			respond_to do |format|
-				format.html { redirect_to game_play_path(params[:id]) }
-				format.json { head :no_content }
+				# Redirect
+				respond_to do |format|
+					format.html { redirect_to game_play_path(params[:id]) }
+					format.json { head :no_content }
+				end
+			else
+				respond_to do |format|
+					format.html { redirect_to game_play_path(params[:id]), notice: "You have to answer all questions before moving on." }
+					format.json { head :no_content }
+				end
 			end
 		else
 			gp.first.update(:status => "done")
@@ -321,8 +340,6 @@ class GamesController < ApplicationController
 		).where.not(
 			:status => "done"
 		)
-
-		gp.first.update(:status => "scoreboard")
 
 		gp.first.update(:status => "scoreboard")
 		gp.first.save()
@@ -380,10 +397,12 @@ class GamesController < ApplicationController
 	
 	def webhook
 
-		w = Webhook.all().count
+		w = Webhook.all()
+		lang = w.count > 0 && w.last && w.last.lang ? w.last.lang : I18n.default_locale
 
 		render json: {
-			"webhooks" => w
+			"webhooks" => w.count,
+			"lang" => lang
 		}
 
 	end
