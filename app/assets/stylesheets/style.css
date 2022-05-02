@@ -19,7 +19,7 @@ input[type=number], input[type=text]:focus, textarea:focus {
 }
 
 body{
-  background: url("https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fb6439b1d-2134-4971-8e63-804c02198266%2FUntitled.png?table=block&id=4b818df4-d388-4ffd-943a-167023d68428&spaceId=2f3ed0cf-10ed-4f95-bffc-26abde038fa4&width=2000&userId=2c9470b7-aa7f-4124-8fed-5babbc806ba2&cache=v2");
+  background: url("https://s3.us-west-2.amazonaws.com/secure.notion-static.com/3e0f597d-f95d-4b79-9119-70f5833d9227/background.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220502%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220502T133153Z&X-Amz-Expires=86400&X-Amz-Signature=4f7071277ea81188b6218bd49bd0c9e8310a7130cfe869031bf3ca47c8482481&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22background.jpg%22&x-id=GetObject");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
