@@ -386,10 +386,12 @@ class GamesController < ApplicationController
 	
 	def webhook
 
-		w = Webhook.all().count
+		w = Webhook.all()
+		lang = w.count > 0 && w.last && w.last.lang ? w.last.lang : I18n.default_locale
 
 		render json: {
-			"webhooks" => w
+			"webhooks" => w.count,
+			"lang" => lang
 		}
 
 	end

@@ -30,6 +30,7 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  lang: "English"
   activerecord:
     attributes:
       team:
@@ -135,3 +136,5 @@ en:
     toRules: "Back to rules"
 
 
+  game: 
+    scoreboard: "Scoreboard!"

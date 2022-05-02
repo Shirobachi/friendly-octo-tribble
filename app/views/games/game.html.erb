@@ -81,7 +81,9 @@
 				<% end %>
 
 			<% elsif @gp.status == "scoreboard" %>
-				<div class="neon neon-text neon-red mb-5">Scoreboard</div>
+				<div class="neon neon-text neon-red mb-5">
+					<%= t('game.scoreboard') %>
+				</div>
 				<% @team_scoreboard.each do |t| %>
 					<p class="text-lg neon-text neon-green">
 						<%= t['team'].name %> <%= t['score'] %> points <br>
@@ -122,9 +124,10 @@
 				success: function(data) {
 					// if data.webhooks > 0, refresh page
 					if (data.webhooks > 0)
-						location.reload();
+						// redirect to /lang/game/ {data.lang}
+						window.location.href = '/lang/game/' + data.lang;
 			}});
-		}, 1000);
+		}, 500);
 	});
 
 </script>

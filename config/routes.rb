@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 	post 'menu/misc/deactivate' => 'menu#deactivate', as: :menu_deactivate
 	post 'menu/misc/activate' => 'menu#activate', as: :menu_activate
 
+	get 'lang/:type/:lang' => 'menu#lang', as: :lang
 
 	root "games#game"
 end

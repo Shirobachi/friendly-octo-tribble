@@ -28,7 +28,10 @@ class GameProgress < ApplicationRecord
 
 	def add_webhook_record
 		# Add webhook record
-		Webhook.create(:game_progress_id => self.id)
+		Webhook.create(
+			:game_progress_id => self.id,
+			:lang => I18n.locale == :pl ? 'pl' : 'en'
+		)
 	end
 
 end

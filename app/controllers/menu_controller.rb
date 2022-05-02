@@ -28,4 +28,20 @@ class MenuController < ApplicationController
 
 		redirect_to menu_misc_path, notice: "Activated #{c} questions."
 	end
+
+	def lang
+		# save cookie
+		cookies[:lang] = {
+			value: params[:lang],
+			expires: 1.year.from_now
+		}
+
+		lang = params[:lang] == 'en' ? 'English' : 'Polski'
+
+		if params[:type] == 'admin'
+			redirect_to menu_path, notice: "Language changed to #{lang}"
+		else
+			redirect_to root_path
+		end
+	end
 end
