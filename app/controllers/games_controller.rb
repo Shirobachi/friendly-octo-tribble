@@ -116,9 +116,12 @@ class GamesController < ApplicationController
 	end	
 
 	def smart_questions
-
 		# Get question with point params[:points] and not used in this game
-		@questions = Question.where(points: params[:points]).order(:used).limit(params[:limit])
+		@questions = Question.where(
+			points: params[:points],
+			active: true
+		).order(:used).limit(params[:limit]).to_a
+
 		game_id = params[:game]
 		game_questions = GameQuestion.where(:game_id => game_id)
 		@questions = @questions - game_questions.map { |q| q.question }
