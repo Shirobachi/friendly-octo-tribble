@@ -17,7 +17,7 @@ input[type=number], input[type=text]:focus, textarea:focus {
 }
 
 body{
-  background: "url('/images/background.jpg')";
+  background: url('https://imgur.com/sDaUA6G.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
