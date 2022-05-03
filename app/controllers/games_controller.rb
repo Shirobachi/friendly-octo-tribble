@@ -263,9 +263,9 @@ class GamesController < ApplicationController
 				:question_id => @question,
 				:status => "rules"
 			)
+			add_webhook_record(@game_progress.id)
 			@game_progress.save()
 
-			add_webhook_record(@game_progress.id)
 			
 			prepare_game_vars
 		end
