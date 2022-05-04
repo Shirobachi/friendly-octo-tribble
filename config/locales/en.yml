@@ -174,7 +174,7 @@ en:
     ansb: "Answer B"
     ansc: "Answer C"
     ansd: "Answer D"
-    urlToSource: "URL to source"
+    justification: "justification"
     urlToJustification: "URL to justification"
     score: "Score"
     timeInSeconds: "Time in seconds"
