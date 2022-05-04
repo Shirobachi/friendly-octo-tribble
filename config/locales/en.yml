@@ -15,6 +15,7 @@ en:
     scoreboard: Scoreboard!
   menu:
     game:
+      action: Action
       actions: Actions
       delete: Delete this game
       draw: Draw questions
@@ -34,6 +35,9 @@ en:
       title: Games
       usage: Usage
     misc:
+      question:
+        smartActivate: Smarta ctivate
+        smartDeactivate: Smart deactivate
       title: Misc
     questions:
       action: Action
@@ -51,10 +55,17 @@ en:
       noRules: No rules yet
       title: Rules
     scoreboard:
+      action: Action
+      best_score: Best score
       delete: Delete whole team
       edit: Edit Team
+      link_to_photo: Link to photo
+      name: Name
       new: Add new team
       noTeams: No teams yet
+      no_photo: No photo
+      no_score: No score
+      quatity: Quatity
       teams: Teams
       title: Teams
   misc:
@@ -65,6 +76,15 @@ en:
       deactivate:
         button: Deactivate!
         title: Deactivate all questions used at least X times
+  panel:
+    buttons:
+      Break: Break
+      Finish_game: End game
+      Justification: Justification
+      Next_question: Next question
+      Return_to_game: Return to game
+      Scoreboard: Scoreboard
+      Start_the_game: Start the game
   placeholders:
     ansa: Answer A (correct)
     ansb: Answer B
@@ -85,6 +105,7 @@ en:
     optional: optional
   succed:
     game:
+      cannotelete: Cannot delete
       create: Game created
       delete: Game deleted
       finished: Game finished.
