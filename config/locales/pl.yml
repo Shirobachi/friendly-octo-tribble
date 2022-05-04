@@ -48,7 +48,7 @@ pl:
       actions: "Akcje"
       manage: "Zarządzaj pytaniami"
       draw: "Losuj pytania"
-      numberOfQuestions: "Ilość pytań"
+      numberOfQuestions: "Ilość pytań za %{points} punkty"
       manual: "Dodaj pytania ręcznie"
       edit: "Edytuj grę"
       delete: "Usuń tę grę"
