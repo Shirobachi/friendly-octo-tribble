@@ -1,3 +1,9 @@
+<% @teamScores = Team.all.order(:bestScore => :desc).limit(20) %>
+
+	<div class="neon neon-text neon-light-blue mb-10">
+		<%= m %>
+	</div>
+
 <% if @teamScores && @teamScores.length >= 3 %>
 	<div class="flex flex-col mb-7">
 		<div class="flex mb-10">
@@ -29,6 +35,4 @@
 			<% end %>
 		</div>
 	</div>
-<% else %>
-	<div class="neon neon-text neon-light-blue mb-10">Break time</div>
 <% end %>

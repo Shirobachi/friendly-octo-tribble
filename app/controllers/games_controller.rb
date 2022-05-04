@@ -213,12 +213,7 @@ class GamesController < ApplicationController
 			end
 		end
 		@questions_remaining = @questions.count - @questions_done
-
-		# if status is break
-		if @gp.status == "break"
-			@teamScores = Team.all.order(:bestScore => :desc).limit(20)
-		end
-
+		
 		if @gp.status == "scoreboard"
 
 			@team_scoreboard = []
