@@ -4,9 +4,12 @@
 	<div class='neon neon-border neon-green'>
 		<%= @question.points %> point
 	</div>
-	<div id='timer' class='neon neon-border neon-light-blue'>
-		<p class="inline-block" id="min"></p>:<p class="inline-block" id="sec"></p>
-	</div>
+	<%# TIMER IF NOT FINISHED Q %>
+	<% if ! @question.is_all_answer(@gp.game_id) %>
+		<div id='timer' class='neon neon-border neon-light-blue'>
+			<p class="inline-block" id="min"></p>:<p class="inline-block" id="sec"></p>
+		</div>
+	<% end %>
 	<div id="time-up" class="neon neon-border neon-red hidden">
 		Time is up!
 	</div>
