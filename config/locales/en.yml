@@ -164,6 +164,8 @@ en:
     confirm: "Confirm"
     noScore: "[No score]"
       
+  shared:
+    optional: "optional"
 
   #for HTML
   #usage:
