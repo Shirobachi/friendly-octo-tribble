@@ -81,8 +81,8 @@
 			
 			<%= link_to t, game_play_next_path(@gp.game_id), class: "neon neon-yellow"%>
 
-			<% if @question.justification %>
-				<%= link_to "Justification", @question.justification, class: "neon neon-green", :target => "_blank" %>
+			<% if uri?(@question.justificationUrl) %>
+				<%= link_to "Justification", @question.justificationUrl, class: "neon neon-green", :target => "_blank" %>
 			<% else %>
 				<p class="neon neon-disabled">Justification</p>
 			<% end %>
