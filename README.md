@@ -71,7 +71,7 @@ Celem projektu było stworzenie dla klienta aplikacji quizowej do baru/klubu, kt
 
 Wygląd menu administratora
 
-![Gra podczas pytania](README-zasoby/0.0.0.0_3000_.png)
+![Gra podczas pytania](README-assets/duringquestion.png)
 
 Gra podczas pytania
 
