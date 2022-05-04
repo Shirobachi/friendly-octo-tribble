@@ -22,10 +22,16 @@ class Team < ApplicationRecord
 	end
 
 	def get_score(game_id)
-		return Answer.where(
+		res = 0
+		
+		Answer.where(
 			:team_id => self.id,
 			:game_id => game_id,
 			:answer => "A"
-		).count
+		).each do |a| 
+			res += a.question.points
+		end
+
+		return res
 	end
 end
