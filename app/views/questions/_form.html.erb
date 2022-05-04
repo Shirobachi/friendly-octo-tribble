@@ -12,52 +12,72 @@
 
 <%= form_with(model: question) do |form| %>
 	<div class="mt-5 flex flex-col space-y-4">
-			<div>
-				<%= form.text_field :question, class: "neon-green", placeholder: t('placeholders.questionContent') %>
-			</div>
-
-			<div>
-				<%= form.text_field :ansA, class: "neon-green",  placeholder: t('placeholders.ansa') %>
-			</div>
-
-			<div>
-				<%= form.text_field :ansB, class: "neon-green", placeholder: t('placeholders.ansb') %>
-			</div>
-
-			<div>
-				<%= form.text_field :ansC, class: "neon-green", placeholder: t('placeholders.ansc') %>
-			</div>
-
-			<div>
-				<%= form.text_field :ansD, class: "neon-green", placeholder: t('placeholders.ansd') %>
-			</div>
-
-			<div class="flex justify-center translate-x-5 items-center">
-				<%= form.number_field :points, class: "neon-green", placeholder: t('placeholders.score') %>
-				<div class="m-3">
-					<%= render :partial => 'shared/tooltip', locals: {m: t('placeholders.score') } %>
-				</div>
-			</div>
-
-			<div class="flex justify-center translate-x-5 items-center">
-				<%= form.number_field :time, class: "neon-green", placeholder: t('placeholders.timeInSeconds') %>
-				<div class="m-3">
-					<%= render :partial => 'shared/tooltip', locals: {m: t('placeholders.timeInSeconds') } %>
-				</div>
-			</div>
-
-			<div>
-				<%= form.text_field :justificationUrl, class: "neon-green", placeholder: t('placeholders.urlToJustification') %>
-			</div>
-
-			<div>
-				<%= form.text_field :justification, class: "neon-green", placeholder: t('placeholders.justification') %>
-			</div>
-
-			<div>
-				<%= form.submit t('game.confirm'), class: "neon neon-green" %>
+		<div class="flex justify-center translate-x-5 items-center">
+			<%= form.text_field :question, class: "neon-green req", placeholder: t('placeholders.questionContent') %>
+			<div class="m-3">
+				<%= render :partial => 'shared/tooltip', locals: {m: t('placeholders.questionContent'), req: true } %>
 			</div>
 		</div>
 
+		<div class="flex justify-center translate-x-5 items-center">
+			<%= form.text_field :ansA, class: "neon-green",  placeholder: t('placeholders.ansa') %>
+			<div class="m-3">
+				<%= render :partial => 'shared/tooltip', locals: {m: t('placeholders.ansa'), req: true } %>
+			</div>
+		</div>
+
+		<div class="flex justify-center translate-x-5 items-center">
+			<%= form.text_field :ansB, class: "neon-green", placeholder: t('placeholders.ansb') %>
+			<div class="m-3">
+				<%= render :partial => 'shared/tooltip', locals: {m: t('placeholders.ansb'), req: true } %>
+			</div>
+		</div>
+
+		<div class="flex justify-center translate-x-5 items-center">
+			<%= form.text_field :ansC, class: "neon-green", placeholder: t('placeholders.ansc') %>
+			<div class="m-3">
+				<%= render :partial => 'shared/tooltip', locals: {m: t('placeholders.ansc'), req: true } %>
+			</div>
+		</div>
+
+		<div class="flex justify-center translate-x-5 items-center">
+			<%= form.text_field :ansD, class: "neon-green", placeholder: t('placeholders.ansd') %>
+			<div class="m-3">
+				<%= render :partial => 'shared/tooltip', locals: {m: t('placeholders.ansd'), req: true } %>
+			</div>
+		</div>
+
+		<div class="flex justify-center translate-x-5 items-center">
+			<%= form.number_field :points, class: "neon-green", placeholder: t('placeholders.score') %>
+			<div class="m-3">
+				<%= render :partial => 'shared/tooltip', locals: {m: t('placeholders.score'), req: true } %>
+			</div>
+		</div>
+
+		<div class="flex justify-center translate-x-5 items-center">
+			<%= form.number_field :time, class: "neon-green", placeholder: t('placeholders.timeInSeconds') %>
+			<div class="m-3">
+				<%= render :partial => 'shared/tooltip', locals: {m: t('placeholders.timeInSeconds'), req: true } %>
+			</div>
+		</div>
+
+		<div class='flex justify-center translate-x-5 items-center'>
+			<%= form.text_field :justificationUrl, class: "neon-green", placeholder: t('placeholders.urlToJustification') + ' - ' + t('shared.optional') %>
+			<div class="m-3">
+				<%= render :partial => 'shared/tooltip', locals: {m: t('placeholders.urlToJustification') + ' - ' + t('shared.optional') } %>
+			</div>
+		</div>
+
+		<div class='flex justify-center translate-x-5 items-center'>
+			<%= form.text_field :justification, class: "neon-green", placeholder: t('placeholders.justification') + ' - ' + t('shared.optional') %>
+			<div class="m-3">
+				<%= render :partial => 'shared/tooltip', locals: {m: t('placeholders.justification') + ' - ' + t('shared.optional') } %>
+			</div>
+		</div>
+
+		<div>
+			<%= form.submit t('game.confirm'), class: "neon neon-green" %>
+		</div>
+	</div>
 
 <% end %>

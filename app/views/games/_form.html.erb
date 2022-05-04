@@ -13,8 +13,11 @@
 <%= form_with(model: game) do |form| %>
 	
 	<div class="mt-5 flex flex-col space-y-4">
-		<div>
-			<%= form.text_field :name, class: "neon-green", placeholder: t('placeholders.name') %>
+		<div class="flex justify-center translate-x-5 items-center">
+			<%= form.text_field :name, class: "neon-green", placeholder: t('placeholders.name') + ' - ' + t('shared.optional') %>
+			<div class="m-3">
+				<%= render :partial => 'shared/tooltip', locals: {m: t('placeholders.name') + ' - ' + t('shared.optional') } %>
+			</div>
 		</div>
 
 		<div>

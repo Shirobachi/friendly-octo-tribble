@@ -48,7 +48,7 @@ en:
       actions: "Actions"
       manage: "Manage questions"
       draw: "Draw questions"
-      numberOfQuestions: "Number of questions"
+      numberOfQuestions: "Number of questions with %{points} points"
       manual: "Add questions manually"
       edit: "Edit game"
       delete: "Delete this game"
@@ -94,6 +94,11 @@ en:
   
   succed:
     game:
+      status:
+        configuring: "Configuring"
+        ready: "Ready"
+        running: "Running"
+        finished: "Finished"
       create: "Game created"
       update: "Game updated"
       delete: "Game deleted"
@@ -159,6 +164,8 @@ en:
     confirm: "Confirm"
     noScore: "[No score]"
       
+  shared:
+    optional: "optional"
 
   #for HTML
   #usage:

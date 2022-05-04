@@ -3,7 +3,7 @@ class TeamsController < ApplicationController
 
   # GET /teams or /teams.json
   def index
-    @teams = Team.all
+    @teams = Team.all.order(:bestScore => :desc)
   end
 
   # GET /teams/new
@@ -30,7 +30,7 @@ class TeamsController < ApplicationController
   def update
     respond_to do |format|
       if @team.update(team_params)
-        format.html { redirect_to questions_path, notice: t('succed.team.update') }
+        format.html { redirect_to teams_path, notice: t('succed.team.update') }
         format.json { render :show, status: :ok, location: @team }
       else
         format.html { render :edit, status: :unprocessable_entity }
