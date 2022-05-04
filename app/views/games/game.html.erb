@@ -15,126 +15,21 @@
 		<% else %>
 			<%# GAME %>
 			<% if @gp.status == "play" %>
-				<div class="flex justify-around space-x-10 mb-8">
-					<%# POINT & TIME %>
-					<div class='neon neon-border neon-green'>
-						<%= @question.points %> point
-					</div>
-					<div id='timer' class='neon neon-border neon-light-blue'>
-						<p class="inline-block" id="min"></p>:<p class="inline-block" id="sec"></p>
-					</div>
-					<div id="time-up" class="neon neon-border neon-red hidden">
-						Time is up!
-					</div>
-				</div>
-
-				<%# QUESTION %>
-				<div class="neon-border neon-text neon-tail text-4xl text-green-600">
-					<% if uri_i?(@question.question) %>
-						<div class="flex justify-center">
-							<img src="<%= @question.question %>" alt="">
-						</div>
-					<% else %>
-						<%= @question.question %>
-					<% end %>
-				</div>
-
-				<%# ANSWERS %>
-				<% letters = "ABCD" %>
-				<div class="flex mt-10 flex-wrap">
-					<% @question.order.split('').each_with_index do |o, i| %>
-						<div class="neon-border neon-text w-1/2 text-xl mt-5 <%= @question.is_all_answer(@gp.game_id) ? (o == 'a' ? 'neon-green' : 'neon-red') : ('neon-pink') %>">
-							<% if uri_i?(@question.get_answer(o)) %>
-								<div class="flex justify-center">
-									<img src="<%= @question.get_answer(o) %>" alt="">
-								</div>
-							<% else %>
-								<%= letters[i] %>. <%= @question.get_answer(o) %>
-								<% if @question.is_all_answer(@gp.game_id) %>
-									[ <%= @question.count_answers(@gp.game_id, o) %> ]
-								<% end %>
-							<% end %>
-						</div>
-					<% end %>
-				</div>
-
+				<%= render 'play'  %>
 			<%# NOT GAME IS PLAYING BUT RULES (GAME JUST STARTED) %>
 			<% elsif @gp.status == "rules" %>
-				<% @rules.each do |rule| %>
-					<div class="neon-border neon-text neon-green text-2xl text-green-600 m-5">
-						<%= rule.orderID %>. <%= rule.content %>
-					</div>
-				<% end %>
+				<%= render 'rules'  %>
 			<%# BREAK %>
 			<% elsif @gp.status == "break" %>
-				<% if @teamScores && @teamScores.length >= 3 %>
-					<div class="flex flex-col mb-7">
-						<div class="flex mb-10">
-							<% @teamScores.each_with_index do |t, i| %>
-								<% if i == 1 %>
-									<div class="w-1/3 order-1">
-								<% elsif i == @teamScores.length / 2 +1 %>
-									</div> <div class="w-1/3 order-3">
-								<% elsif i == @teamScores.length %>
-									</div>
-								<% end %>
-
-								<% if i == 0 %>
-									<div class="w-1/3 order-2">
-										<p class="neon-text neon-green mb-2 text-xl">
-											<%= i+1 %>. <%= t.name %>: <%= t.bestScore %> points!
-										</p>
-										<% if uri_i?(t.linkToPhoto) %>
-											<%= image_tag t.linkToPhoto, class: 'w-full' %>
-										<% else %>
-											<%= image_tag 'winner.jpg', alt: 'icon' %>
-										<% end %>
-									</div>
-								<% else %>
-									<p class="text-lg">
-										<%= i + 1%>. <%= t.name %>: <%= t.bestScore %> points<br>
-									</p>
-								<% end %>
-							<% end %>
-						</div>
-					</div>
-				<% else %>
-					<div class="neon neon-text neon-light-blue mb-10">Break time</div>
-				<% end %>
-
+				<%= render 'break'  %>
 			<%# SCOREBOARD %>
 			<% elsif @gp.status == "scoreboard" %>
-				<div class="neon neon-text neon-red mb-5">
-					<%= t('game.scoreboard') %>
-				</div>
-				<% @team_scoreboard.each do |t| %>
-					<p class="text-lg neon-text neon-green">
-						<%= t['team'].name %> <%= t['score'] %> points <br>
-					</p>
-				<% end %>
+				<%= render 'scoreboard'  %>
 			<% else %>
 				Error status
 			<% end %>
-
-			<%# JUSTIFICATION %>
-			<% if @question.is_all_answer(@gp.game_id) && @question.justification %>
-				<% if ! @question.justification.empty? %>
-					<div class="my-10 neon neon-border neon-tail w-full">
-						<%= @question.justification %>
-					</div>
-				<% end %>
-			<% end %>
 			
-			<%# GAME PROGRESS %>
-			<div class="mt-5 flex neon-border neon-pink">
-				<% for c in 1..@questions_done %>
-					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="flex-1 bi bi-circle-fill text-green-500" viewBox="0 0 16 16"> <circle cx="8" cy="8" r="8"/> </svg>
-				<% end %>
-				<% for c in 1..@questions_remaining %>
-					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="flex-1 bi bi-circle text-red-500" viewBox="0 0 16 16"> <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/> </svg>
-				<% end %>
-			</div>
-
+			<%= render 'progres_bar' %>
 		<% end %>
 	</div>
 
