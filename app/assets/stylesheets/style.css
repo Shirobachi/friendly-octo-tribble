@@ -4,7 +4,6 @@ input[type=number], input[type=text], textarea {
 	border: var(--clr-neon) 2px solid;
 	border-radius: 0.25em;
 
-	
   color: var(--clr-neon);
 	background-color: transparent;
 
@@ -92,15 +91,15 @@ body{
 }
 
 .neon-border{
-		border: 0.2rem solid #fff;
-		border-radius: 1.5rem;
-		padding: 0.4em;
-		box-shadow: 0 0 .2rem #fff,
-								0 0 .2rem #fff,
-								0 0 2rem var(--clr-neon),
-								0 0 0.8rem var(--clr-neon),
-								0 0 2.8rem var(--clr-neon),
-								inset 0 0 1.3rem var(--clr-neon);
+	border: 0.2rem solid #fff;
+	border-radius: 1.5rem;
+	padding: 0.4em;
+	box-shadow: 0 0 .2rem #fff,
+		0 0 .2rem #fff,
+		0 0 2rem var(--clr-neon),
+		0 0 0.8rem var(--clr-neon),
+		0 0 2.8rem var(--clr-neon),
+		inset 0 0 1.3rem var(--clr-neon);
 }
 
 .neon-text {
