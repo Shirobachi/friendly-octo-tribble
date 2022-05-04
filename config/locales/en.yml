@@ -94,6 +94,11 @@ en:
   
   succed:
     game:
+      status:
+        configuring: "Configuring"
+        ready: "Ready"
+        running: "Running"
+        finished: "Finished"
       create: "Game created"
       update: "Game updated"
       delete: "Game deleted"
