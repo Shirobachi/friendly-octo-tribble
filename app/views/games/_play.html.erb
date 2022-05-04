@@ -45,8 +45,16 @@
 <%# JUSTIFICATION %>
 <% if @question.is_all_answer(@gp.game_id) && @question.justification %>
 	<% if ! @question.justification.empty? %>
-		<div class="my-10 neon neon-border neon-tail w-full">
-			<%= @question.justification %>
-		</div>
+		
+		<% if uri_i?(@question.justification) %>
+			<div class="flex justify-center mt-5">
+				<img src="<%= @question.justification %>" alt="">
+			</div>
+		<% else %>
+			<div class="my-10 neon neon-border neon-tail w-full">
+				<%= @question.justification %>
+			</div>
+			
+		<% end %>
 	<% end %>
 <% end %>
