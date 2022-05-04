@@ -93,6 +93,11 @@ pl:
   
   succed:
     game:
+      status:
+        configuring: "Konfiguracja"
+        ready: "Gotowa"
+        running: "W trakcie"
+        finished: "Zakończona"
       create: "Gra została stworzona"
       update: "Gra została zaktualizowana"
       delete: "Gra została usunięta"
