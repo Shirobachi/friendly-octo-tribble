@@ -1,6 +1,6 @@
 <% if question.errors.any? %>
 	<div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
-		<p class="font-bold">Something went wrong!</p>
+		<p class="font-bold"><%= t('toast.wrong')%></p>
 			<% question.errors.each do |error| %>
 				<p class="text-sm">
 					<%= error.full_message %>
@@ -55,7 +55,7 @@
 			</div>
 
 			<div>
-				<%= form.submit 'Confirm', class: "neon neon-green" %>
+				<%= form.submit t('game.confirm'), class: "neon neon-green" %>
 			</div>
 		</div>
 

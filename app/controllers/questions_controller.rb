@@ -62,7 +62,7 @@ class QuestionsController < ApplicationController
 			end
 		else
 			respond_to do |format|
-				format.html { redirect_to questions_url, notice: "This question cannot be deleted!" }
+				format.html { redirect_to questions_url, notice: t('succed.question.cannotDelete') }
 				format.json { head :no_content }
 			end
 		end

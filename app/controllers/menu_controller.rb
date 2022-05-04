@@ -8,6 +8,8 @@ class MenuController < ApplicationController
 
 		redirect_to menu_misc_path, notice: "Deactivated #{questions.count} questions."
 
+		
+
 		questions.each do |q|
 			q.active = false
 			q.save
@@ -39,7 +41,7 @@ class MenuController < ApplicationController
 		lang = params[:lang] == 'en' ? 'English' : 'Polski'
 
 		if params[:type] == 'admin'
-			redirect_to menu_path, notice: "Language changed to #{lang}"
+			redirect_to menu_path, notice: t('menu.lang.admin', lang: lang)
 		else
 			redirect_to root_path
 		end

@@ -8,7 +8,7 @@
 				<div class="flex justify-between">
 					<%= team.name %>
 					<% if team.bestScore == -1 %>				
-						[ No score ]
+						<%=t('game.noScore')%>
 					<% else %>
 						[ <%= team.bestScore %> ]
 					<% end %>

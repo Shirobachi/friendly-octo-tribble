@@ -83,6 +83,7 @@ en:
       manual: "Add questions manually"
       edit: "Edit game"
       delete: "Delete this game"
+      configuring: "Configuring"
 
       #manage questions
       questionTitle: "Title"
@@ -117,6 +118,7 @@ en:
       edit: "Edit rule"
       delete: "Delete this rule"
     
+    
   toast:
     wrong: "Something went wrong!"  
   
@@ -125,10 +127,18 @@ en:
       create: "Game created"
       update: "Game updated"
       delete: "Game deleted"
+      cannotDelete: "This game cannot be deleted!"
+      runned: "This game is already running (or finished) and cannot be edit!"
+      running: "There is running game already!"
+      finished: "Game finished."
     question:
       create: "Question created"
       update: "Question updated"
       delete: "Question deleted"
+      answer: "You have to answer all questions before moving on."
+      deactivate: "Deactivated questions"
+      activate: "Activated questions"
+      cannotDelete: "This question cannot be deleted!"
     rule:
       create: "Rule created"
       update: "Rule updated"
@@ -137,6 +147,10 @@ en:
       create: "Team created"
       update: "Team updated"
       delete: "Team deleted" 
+
+    
+    
+   
 
   actions:
     rename: "Edit"
@@ -172,8 +186,12 @@ en:
     ruleContent: "Rule content"
     orderID: "Order ID"
 
-  status:
-    configuring: "Configuringgggg"
-
   game: 
     scoreboard: "Scoreboard!"
+    confirm: "Confirm"
+    noScore: "[No score]"
+    
+
+  #for HTML
+  #usage:
+  #<%= raw t("blah") %>

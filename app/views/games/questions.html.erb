@@ -9,8 +9,8 @@
 	<%= form_with do |form| %>
 		<%= form.hidden_field :points, value: p %>
 		<%= form.hidden_field :game, value: @game.id %>
-		<%= form.number_field :limit, class: "neon-green", placeholder: t('menu.game.numberOfQuestion', points: p), :required => true %>
-		<%= form.submit class: "neon neon-green" %>
+		<%= form.number_field :limit, class: "neon-green", placeholder: t('menu.game.numberOfQuestions', points: p), :required => true %>
+		<%= form.submit t('game.confirm'), class: "neon neon-green" %>
 	<% end %>
 
 <% end %>
@@ -60,6 +60,6 @@
 
 <%# BOTTOM BUTTONS %>
 <div class="flex justify-center items-center py-8 space-x-5">
-	<%= link_to "Go to menu", menu_path, class: "neon neon-gray"%>
-	<%= link_to "Go back to games", games_path, class: "neon neon-gray"%>
+	<%= link_to t('back.toMenu'), menu_path, class: "neon neon-gray"%>
+	<%= link_to t('back.toGame'), games_path, class: "neon neon-gray"%>
 </div>

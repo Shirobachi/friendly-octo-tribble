@@ -86,7 +86,7 @@ class GamesController < ApplicationController
 			end
 		else
 			respond_to do |format|
-				format.html { redirect_to games_path, notice: "This game cannot be deleted!" }
+				format.html { redirect_to games_path, notice: t('succed.game.cannotelete') }
 				format.json { head :no_content }
 			end
 		end
@@ -98,7 +98,7 @@ class GamesController < ApplicationController
 		@questions = Question.all.order(:used)
 
 		if @game.status == "done" || @game.status == "running"
-			redirect_to games_path, notice: "This game is already running (or finished) and cannot be edit!"
+			redirect_to games_path, notice: t('succed.game.runned')
 			return
 		end
 
@@ -156,7 +156,7 @@ class GamesController < ApplicationController
 		@teams = Team.all.order(:orderID)
 		
 		if @game.status == "done" || @game.status == "running"
-			redirect_to games_path, notice: "This game is already running (or finished) and cannot be edit!"
+			redirect_to games_path, notice: t('succed.game.runned')
 			return
 		end
 	end
@@ -245,7 +245,7 @@ class GamesController < ApplicationController
 				prepare_game_vars
 			else
 				# redirect to games_path
-				redirect_to games_path, notice: "There is already a game running."
+				redirect_to games_path, notice: t('succed.game.running')
 			end
 		else
 			# find game with status 'ready'
@@ -333,7 +333,7 @@ class GamesController < ApplicationController
 				end
 			else
 				respond_to do |format|
-					format.html { redirect_to game_play_path(params[:id]), notice: "You have to answer all questions before moving on." }
+					format.html { redirect_to game_play_path(params[:id]), notice: t('succed.question.answer') }
 					format.json { head :no_content }
 				end
 			end
@@ -346,7 +346,7 @@ class GamesController < ApplicationController
 
 			add_webhook_record(gp.first.id)
 
-			redirect_to games_path, notice: "Game finished."
+			redirect_to games_path, notice: t('succed.game.finished')
 		end
 	end
 
