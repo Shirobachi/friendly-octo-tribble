@@ -13,12 +13,18 @@
 <%= form_with(model: rule) do |form| %>
 
 	<div class="mt-5 flex flex-col space-y-4">
-		<div>
+		<div class="flex justify-center translate-x-5 items-center">
 			<%= form.text_field :content, class: "neon-green", placeholder: t('placeholders.ruleContent') %>
+			<div class="m-3">
+				<%= render :partial => 'shared/tooltip', locals: {m: t('placeholders.ruleContent'), req: true } %>
+			</div>
 		</div>
 
-		<div>
+		<div class="flex justify-center translate-x-5 items-center">
 			<%= form.number_field :orderID, class: "neon-green", placeholder: t('placeholders.orderID') %>
+			<div class="m-3">
+				<%= render :partial => 'shared/tooltip', locals: {m: t('placeholders.orderID'), req: true } %>
+			</div>
 		</div>
 
 		<div>
