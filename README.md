@@ -72,7 +72,7 @@ Celem projektu było stworzenie dla klienta aplikacji quizowej do baru/klubu, kt
 
 Wygląd menu administratora
 
-![Gra podczas pytania](Dokumentacja%20aplikacji%20%E2%80%9CFriendly%20Octo%20Tribble%E2%80%9D%20f68e588542b1470aa5ca4bb5d7b1e04c/0.0.0.0_3000_.png)
+![Gra podczas pytania](README-zasoby/0.0.0.0_3000_.png)
 
 Gra podczas pytania
 
