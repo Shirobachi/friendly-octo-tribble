@@ -1,4 +1,5 @@
 # Dokumentacja aplikacji “Friendly Octo Tribble”
+![mockup](README-assets/mockup.jpg)
 
 # Twórcy projektu
 
@@ -11,6 +12,7 @@
 Celem projektu było stworzenie dla klienta aplikacji quizowej do baru/klubu, która przy pomocy projektora będzie wyświetlać pytania z przeglądarki na które z kolei będą odpowiadać drużyny złożone z 2 lub więcej osób.
 
 # Wykorzystane technologie
+
 
 **Wykorzystane technologie:**
 
@@ -64,22 +66,3 @@ Celem projektu było stworzenie dla klienta aplikacji quizowej do baru/klubu, kt
 # Baza danych (schemat ERD)
 
 ![schemat bazy danych.png](README-assets/schemat_bazy_danych.png)
-
-# Interfejs
-
-![Wygląd menu administratora](README-assets/menu.png)
-
-Wygląd menu administratora
-
-![Gra podczas pytania](README-assets/duringquestion.png)
-
-Gra podczas pytania
-
-![Gra podczas przerwy](README-assets/duringbrake.png)
-
-
-Gra podczas przerwy
-
-![Gra po zakonczeniu pytania](README-assets/afterquestion.png)
-
-Gra po zakonczeniu pytania
