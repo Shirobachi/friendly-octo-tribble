@@ -348,6 +348,15 @@ class GamesController < ApplicationController
 			game = Game.find(gp.first.game_id)
 			game.update(:status => "finished")
 
+			# Change teams best score
+			teams_id = GameTeam.where(:game_id => params[:id])
+			teams = Team.where(:id => teams_id.map { |t| t.team_id })
+			teams.each do |t|
+				if t.bestScore < t.get_score(params[:id])
+					t.update(:bestScore => t.get_score(params[:id]))
+				end
+			end
+
 			add_webhook_record
 
 			redirect_to games_path, notice: t('succed.game.finished')
