@@ -60,15 +60,14 @@ Celem projektu było stworzenie dla klienta aplikacji quizowej do baru/klubu, kt
 
 # Diagram przypadków użycia
 
-![Untitled](Dokumentacja%20aplikacji%20%E2%80%9CFriendly%20Octo%20Tribble%E2%80%9D%20f68e588542b1470aa5ca4bb5d7b1e04c/Untitled.png)
-
+![Untitled](README-assets/usecase.png)
 # Baza danych (schemat ERD)
 
-![schemat bazy danych.png](Dokumentacja%20aplikacji%20%E2%80%9CFriendly%20Octo%20Tribble%E2%80%9D%20f68e588542b1470aa5ca4bb5d7b1e04c/schemat_bazy_danych.png)
+![schemat bazy danych.png](README-assets/schemat_bazy_danych.png)
 
 # Interfejs
 
-![Wygląd menu administratora](Dokumentacja%20aplikacji%20%E2%80%9CFriendly%20Octo%20Tribble%E2%80%9D%20f68e588542b1470aa5ca4bb5d7b1e04c/0.0.0.0_3000_menu.png)
+![Wygląd menu administratora](README-assets/menu.png)
 
 Wygląd menu administratora
 
@@ -76,10 +75,11 @@ Wygląd menu administratora
 
 Gra podczas pytania
 
-![Gra podczas przerwy](Dokumentacja%20aplikacji%20%E2%80%9CFriendly%20Octo%20Tribble%E2%80%9D%20f68e588542b1470aa5ca4bb5d7b1e04c/0.0.0.0_3000__(1).png)
+![Gra podczas przerwy](README-assets/duringbrake.png)
+
 
 Gra podczas przerwy
 
-![Gra po zakonczeniu pytania](Dokumentacja%20aplikacji%20%E2%80%9CFriendly%20Octo%20Tribble%E2%80%9D%20f68e588542b1470aa5ca4bb5d7b1e04c/0.0.0.0_3000__(2).png)
+![Gra po zakonczeniu pytania](README-assets/afterquestion.png)
 
 Gra po zakonczeniu pytania
