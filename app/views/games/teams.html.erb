@@ -14,25 +14,33 @@
 			</thead>
 		<tbody class="text-gray-700">
 
-			<% @teams.each do |t| %>
-				<tr>
-					<td class="text-left py-3 px-4"> <%= t.id %> </td>
-					<td class="text-left py-3 px-4"> <%= t.name %> </td>
-					<td class="w-1/3 text-left py-3 px-4"> <%= t.quantity %></td>
-					<td class="text-left py-3 px-4">
-						<%= link_to toggle_team_path(@game_id, t.id) do %>
-							<% if !@game.teams.include?(t) %>
-								<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-									<path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-								</svg>
-							<% else %>
-								<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-									<path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-								</svg>
+			<% if Team.all.count == 0 %>
+			<tr>
+				<td colspan="5">
+					<%= link_to "No teams teams, add some!", new_team_path, class: 'text-blue-500 underline'  %>
+				</td>
+			</tr>
+			<% else %>
+				<% @teams.each do |t| %>
+					<tr>
+						<td class="text-left py-3 px-4"> <%= t.id %> </td>
+						<td class="text-left py-3 px-4"> <%= t.name %> </td>
+						<td class="w-1/3 text-left py-3 px-4"> <%= t.quantity %></td>
+						<td class="text-left py-3 px-4">
+							<%= link_to toggle_team_path(@game_id, t.id) do %>
+								<% if !@game.teams.include?(t) %>
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+										<path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+									</svg>
+								<% else %>
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+										<path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+									</svg>
+								<% end %>
 							<% end %>
-						<% end %>
-					</td>
-				</tr>
+						</td>
+					</tr>
+				<% end %>
 			<% end %>
 		</tbody>
 		</table>
