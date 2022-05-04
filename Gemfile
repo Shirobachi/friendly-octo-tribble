@@ -77,4 +77,4 @@ group :test do
 end
 
 gem "tailwindcss-rails", "~> 2.0"
-gem 'i18n-tasks', '~> 1.0.9'i18n-tasks unused
+gem 'i18n-tasks', '~> 1.0.9'
