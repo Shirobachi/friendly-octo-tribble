@@ -1,1 +1,0 @@
-[Dokumentacja aplikacji “Friendly Octo Tribble” f68e588542b1470aa5ca4bb5d7b1e04c.md](https://github.com/Shirobachi/friendly-octo-tribble/files/8626707/Dokumentacja.aplikacji.Friendly.Octo.Tribble.f68e588542b1470aa5ca4bb5d7b1e04c.md)
