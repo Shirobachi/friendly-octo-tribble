@@ -1,183 +1,113 @@
+---
 en:
-  lang: "English"
-  activerecord:
-    attributes:
-      team:
-        quantity: "Quantity"
-    errors:
-      models:
-        question:
-          attributes:
-            question:
-              blank: "field can't be empty"
-            ansA:
-              blank: "field can't be empty"
-            ansB:
-              blank: "field can't be empty"
-            ansC:
-              blank: "field can't be empty"
-            ansD:
-              blank: "field can't be empty"
-            justificationUrl:
-              invalid: "must be valid url"
-        team:
-          attributes:
-            name:
-              blank: "field can't be empty"
-            quantity:
-              blank: "field can't be empty"
-            linkToPhoto:
-              invalid: "URL is invalid"
-        rule:
-          attributes:
-            content:
-              blank: "field can't be empty"    
-            orderID:
-              blank: "field can't be empty"
-        game:
-          attributes:
-            name:
-              taken: "is already taken"
+  actions:
+    question: Manage questions to game
+    rename: Edit
+    teams: Manage teams take part in game
+  back:
+    toGame: Back to games
+    toMenu: Back to menu
+    toQuestion: Back to questions
+    toRules: Back to rules
+    toTeams: Back to teams
+  game:
+    confirm: Confirm
+    scoreboard: Scoreboard!
   menu:
     game:
-      title: "Games"
-      new: "Add new game"
-      noGame: "No games yet"
-      name: "Name"
-      status: "Status"
-      actions: "Actions"
-      manage: "Manage questions"
-      draw: "Draw questions"
-      numberOfQuestions: "Number of questions with %{points} points"
-      manual: "Add questions manually"
-      edit: "Edit game"
-      delete: "Delete this game"
-      configuring: "Configuring"
-
-      #manage questions
-      questionTitle: "Title"
-      usage: "Usage"
-      points: "Points/Time"
-      actions: "Actions"
-      #manage teams
-      teamTitle: "Manage Teams"
-      teamName: "Name"
-      teamQuantity: "Quantity"
-
+      actions: Actions
+      delete: Delete this game
+      draw: Draw questions
+      edit: Edit game
+      manage: Manage questions
+      manual: Add questions manually
+      name: Name
+      new: Add new game
+      noGame: No games yet
+      numberOfQuestions: Number of questions with %{points} points
+      points: Points/Time
+      questionTitle: Title
+      status: Status
+      teamName: Name
+      teamQuantity: Quantity
+      teamTitle: Manage Teams
+      title: Games
+      usage: Usage
+    misc:
+      title: Misc
     questions:
-      title: "Questions set"
-      new: "Add new question"
-      noQuestion: "No questions yet"
-      edit: "Edit question"
-      delete: "Delete this question"
-      points: "Points/time"
-      question: "Question"
-      action: "Action"
-    scoreboard:
-      title: "Teams"
-      new: "Add new team"
-      noTeams: "No teams yet"
-      edit: "Edit Team"
-      delete: "Delete whole team"
-      update: "Save"
-      teams: "Teams"
+      action: Action
+      delete: Delete this question
+      edit: Edit question
+      new: Add new question
+      noQuestion: No questions yet
+      points: Points/time
+      question: Question
+      title: Questions set
     rules:
-      title: "Rules"
-      new: "Add new rule"
-      noRules: "No rules yet"
-      edit: "Edit rule"
-      delete: "Delete this rule"
-    misc: 
-      title: "Misc"
-    
-    
-  toast:
-    wrong: "Something went wrong!"  
-  
-  succed:
-    game:
-      status:
-        configuring: "Configuring"
-        ready: "Ready"
-        running: "Running"
-        finished: "Finished"
-      create: "Game created"
-      update: "Game updated"
-      delete: "Game deleted"
-      cannotDelete: "This game cannot be deleted!"
-      runned: "This game is already running (or finished) and cannot be edit!"
-      running: "There is running game already!"
-      finished: "Game finished."
-    question:
-      create: "Question created"
-      update: "Question updated"
-      delete: "Question deleted"
-      answer: "You have to answer all questions before moving on."
-      deactivate: "Deactivated %{questions.count} question/s"
-      activate: "Activated %{c} question/s"
-      cannotDelete: "This question cannot be deleted!"
-    rule:
-      create: "Rule created"
-      update: "Rule updated"
-      delete: "Rule deleted"
-    team:
-      create: "Team created"
-      update: "Team updated"
-      delete: "Team deleted"
-    language:
-      change: "Zmieniono na język %{lang}" 
-
-  actions:
-    rename: "Edit"
-    question: "Manage questions to game"
-    teams: "Manage teams take part in game"
-
-
-  back:
-    toMenu: "Back to menu"
-    toGame: "Back to games"
-    toQuestion: "Back to questions"
-    toTeams: "Back to teams"
-    toRules: "Back to rules"
-
-  placeholders:
-    #game
-    name: "Name (leave empty for using date)"  
-    #question
-    questionContent: "Question content"
-    ansa: "Answer A (correct)"
-    ansb: "Answer B"
-    ansc: "Answer C"
-    ansd: "Answer D"
-    justification: "Justification"
-    urlToJustification: "URL to justification"
-    score: "Score"
-    timeInSeconds: "Time in seconds"
-    #team
-    teamName: "Team's name"
-    linkToPhoto: "Link to photo"
-    quantity: "Quantity"
-    #rule
-    ruleContent: "Rule content"
-    orderID: "Order ID"
-
-  game: 
-    scoreboard: "Scoreboard!"
-    confirm: "Confirm"
-    noScore: "[No score]"
-      
-  shared:
-    optional: "optional"
-
+      delete: Delete this rule
+      edit: Edit rule
+      new: Add new rule
+      noRules: No rules yet
+      title: Rules
+    scoreboard:
+      delete: Delete whole team
+      edit: Edit Team
+      new: Add new team
+      noTeams: No teams yet
+      teams: Teams
+      title: Teams
   misc:
     smart:
-      deactivate: 
-        title: "Deactivate all questions used at least X times"
-        button: "Deactivate!"
-      activate: 
-        title: "Activate all questions used at most X times"
-        button: "Activate!"
-
-  #for HTML
-  #usage:
-  #<%= raw t("blah") %>
+      activate:
+        button: Activate!
+        title: Activate all questions used at most X times
+      deactivate:
+        button: Deactivate!
+        title: Deactivate all questions used at least X times
+  placeholders:
+    ansa: Answer A (correct)
+    ansb: Answer B
+    ansc: Answer C
+    ansd: Answer D
+    justification: Justification
+    linkToPhoto: Link to photo
+    name: Name (leave empty for using date)
+    orderID: Order ID
+    quantity: Quantity
+    questionContent: Question content
+    ruleContent: Rule content
+    score: Score
+    teamName: Team's name
+    timeInSeconds: Time in seconds
+    urlToJustification: URL to justification
+  shared:
+    optional: optional
+  succed:
+    game:
+      create: Game created
+      delete: Game deleted
+      finished: Game finished.
+      runned: This game is already running (or finished) and cannot be edit!
+      running: There is running game already!
+      update: Game updated
+    language:
+      change: Zmieniono na język %{lang}
+    question:
+      activate: Activated %{c} question/s
+      answer: You have to answer all questions before moving on.
+      cannotDelete: This question cannot be deleted!
+      create: Question created
+      deactivate: Deactivated %{questions.count} question/s
+      delete: Question deleted
+      update: Question updated
+    rule:
+      create: Rule created
+      delete: Rule deleted
+      update: Rule updated
+    team:
+      create: Team created
+      delete: Team deleted
+      update: Team updated
+  toast:
+    wrong: Something went wrong!

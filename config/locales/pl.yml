@@ -1,190 +1,122 @@
+---
 pl:
-  lang: "Polski"
-  activerecord:
-    attributes:
-      team:
-        quantity: "Ilość"
-    errors:
-      models:
-        question:
-          attributes:
-            question:
-              blank: "pole nie może być puste"
-            ansA:
-              blank: "pole nie może być puste"
-            ansB:
-              blank: "pole nie może być puste"
-            ansC:
-              blank: "pole nie może być puste"
-            ansD:
-              blank: "pole nie może być puste"
-            justificationUrl:
-              invalid: "niepoprawny adres url" 
-        team:
-          attributes:
-            name:
-              blank: "pole nie może być puste"
-            quantity:
-              blank: "pole nie może być puste"
-            linkToPhoto:
-              invalid: "niepoprawny adres url"
-        rule:
-          attributes:
-            content:
-              blank: "pole nie może być puste"    
-            orderID:
-              blank: "pole nie może być puste"
-        game:
-          attributes:
-            name:
-              taken: "jest już użyta"
+  actions:
+    question: Zarządzaj pytaniami do gry
+    rename: Edytuj
+    teams: Zarządzaj drużynami do gry
+  back:
+    toGame: Powrót do gier
+    toMenu: Powrót do menu
+    toQuestion: Powrót do pytań
+    toRules: Powrót do zasad
+    toTeams: Powrót do drużyn
+  game:
+    confirm: Potwierdź
+    scoreboard: Tablica wyników
   menu:
     game:
-      title: "Gry"
-      new: "Dodaj nową grę"
-      noGame: "Brak gier"
-      name: "Nazwa"
-      status: "Status"
-      actions: "Akcje"
-      manage: "Zarządzaj pytaniami"
-      draw: "Losuj pytania"
-      numberOfQuestions: "Ilość pytań za %{points} punkty"
-      manual: "Dodaj pytania ręcznie"
-      edit: "Edytuj grę"
-      delete: "Usuń tę grę"
-      configuring: "Konfiguruowanie"
-      
-      #manage questions
-      questionTitle: "Tytuł"
-      usage: "Użycie"
-      points: "Punkty/Czas"
-      actions: "Akcje"
-      #manage teams
-      teamTitle: "Zarządzaj drużynami"
-      teamName: "Nazwa"
-      teamQuantity: "Ilość"
-
-    questions:
-      title: "Pytania"
-      new: "Dodaj nowe pytanie"
-      noQuestion: "Brak pytań"
-      edit: "Edytuj pytanie"
-      delete: "Usuń pytanie"
-      points: "Punkty"
-      question: "Pytanie"
-      action: "Akcja"
-    scoreboard:
-      title: "Drużyny"
-      new: "Dodaj nową drużynę"
-      noTeams: "Brak drużyn"
-      edit: "Edytuj drużynę"
-      delete: "Usuń drużynę"
-      update: "Zapisz"
-      teams: "Drużyny"
-    rules:
-      title: "Zasady gry"
-      new: "Dodaj nowe zasady"
-      noRules: "Brak zasad"
-      edit: "Edytuj zasadę"
-      delete: "Usuń zasadę"
+      actions: Akcje
+      delete: Usuń tę grę
+      draw: Losuj pytania
+      edit: Edytuj grę
+      manage: Zarządzaj pytaniami
+      manual: Dodaj pytania ręcznie
+      name: Nazwa
+      new: Dodaj nową grę
+      noGame: Brak gier
+      numberOfQuestions: Ilość pytań za %{points} punkty
+      points: Punkty/Czas
+      questionTitle: Tytuł
+      status: Status
+      teamName: Nazwa
+      teamQuantity: Ilość
+      teamTitle: Zarządzaj drużynami
+      title: Gry
+      usage: Użycie
     misc:
-      title: "Inne"
-    
-  toast:
-    wrong: "Coś poszło nie tak!"  
-  
-  succed:
-    game:
-      status:
-        configuring: "Konfiguracja"
-        ready: "Gotowa"
-        running: "W trakcie"
-        finished: "Zakończona"
-      create: "Gra została stworzona"
-      update: "Gra została zaktualizowana"
-      delete: "Gra została usunięta"
-      cannotDelete: "Nie można usunąć tej gry!"
-      runned: "Gra jest już uruchomiona (lub ukończona) i nie można jej edytować!"
-      running: "Gra jest już uruchomiona"
-      finished: "Gra ukończona"
-    question:
-      create: "Pytanie zostało stworzone"
-      update: "Pytanie zostało zaktualizowane"
-      delete: "Pytanie zostało usunięte"
-      answer: "Musisz podać odpowiedź!"
-      deactivate: "Zdezaktywowano %{questions.count} pytanie/pytań."
-      activate: "Aktywowano %{c} pytanie/pytań."
-      cannotDelete: "Nie można usunąć tego pytania!"
-    rule:
-      create: "Zasada została stworzona"
-      update: "Zasada została zaktualizowana"
-      delete: "Zasada została usunięta"
-    team:
-      create: "Drużyna została stworzona"
-      update: "Drużyna została zaktualizowana"
-      delete: "Drużyna została usunięta" 
-    language:
-      change: "Language changed to %{lang}" 
-  
-  actions:
-    rename: "Edytuj"
-    question: "Zarządzaj pytaniami do gry"
-    teams: "Zarządzaj drużynami do gry"
-
-
-  back:
-    toMenu: "Powrót do menu"
-    toGame: "Powrót do gier"
-    toQuestion: "Powrót do pytań"
-    toTeams: "Powrót do drużyn"
-    toRules: "Powrót do zasad"
-
-  placeholders:
-    #game
-    name: "Nazwa gry (puste miejse oznacza datę)"
-    #question
-    questionContent: "Treść pytania"
-    ansa: "Odpowiedź A (poprawna)"
-    ansb: "Odpowiedź B"
-    ansc: "Odpowiedź C"
-    ansd: "Odpowiedź D"
-    urlToJustification: "Adres url do wyjaśnienia"
-    justification: "Wyjaśnienie"
-    score: "Punkty"
-    timeInSeconds: "Czas w sekundach"
-    #team
-    teamName: "Nazwa drużyny"
-    linkToPhoto: "Adres url do zdjęcia"
-    quantity: "Ilość"
-    #rule
-    ruleContent: "Treść zasady"
-    orderID: "Kolejność"
-
-
-
-  game: 
-    scoreboard: "Tablica wyników"
-    confirm: "Potwierdź"
-    noScore: "[Brak wyniku]"
-
-  shared:
-    optional: "opcjonalne"
-
+      title: Inne
+    questions:
+      action: Akcja
+      delete: Usuń pytanie
+      edit: Edytuj pytanie
+      new: Dodaj nowe pytanie
+      noQuestion: Brak pytań
+      points: Punkty
+      question: Pytanie
+      title: Pytania
+    rules:
+      delete: Usuń zasadę
+      edit: Edytuj zasadę
+      new: Dodaj nowe zasady
+      noRules: Brak zasad
+      title: Zasady gry
+    scoreboard:
+      delete: Usuń drużynę
+      edit: Edytuj drużynę
+      new: Dodaj nową drużynę
+      noTeams: Brak drużyn
+      teams: Drużyny
+      title: Drużyny
   misc:
     smart:
-      deactivate: 
-        title: "Dezaktywuj pytania użyte przynajmniej X razy"
-        button: "Dezaktywuj!"
-      activate: 
-        title: "Aktywuj pytania użyte maksymalnie X razy"
-        button: "Aktywuj!"
-
+      activate:
+        button: Aktywuj!
+        title: Aktywuj pytania użyte maksymalnie X razy
+      deactivate:
+        button: Dezaktywuj!
+        title: Dezaktywuj pytania użyte przynajmniej X razy
   panel:
     buttons:
-      Start_the_game: "Rozpocznij grę"
-      Return_to_game: "Powrót do gry"
-      Next_question: "Następne pytanie"
-      Finish_game: "Zakończ grę"
-      Justification: "Wyjaśnienie"
-      Break: "Pauza"
-      Scoreboard: "Tablica wyników"
+      Break: Pauza
+      Finish_game: Zakończ grę
+      Justification: Wyjaśnienie
+      Next_question: Następne pytanie
+      Return_to_game: Powrót do gry
+      Scoreboard: Tablica wyników
+      Start_the_game: Rozpocznij grę
+  placeholders:
+    ansa: Odpowiedź A (poprawna)
+    ansb: Odpowiedź B
+    ansc: Odpowiedź C
+    ansd: Odpowiedź D
+    justification: Wyjaśnienie
+    linkToPhoto: Adres url do zdjęcia
+    name: Nazwa gry (puste miejse oznacza datę)
+    orderID: Kolejność
+    quantity: Ilość
+    questionContent: Treść pytania
+    ruleContent: Treść zasady
+    score: Punkty
+    teamName: Nazwa drużyny
+    timeInSeconds: Czas w sekundach
+    urlToJustification: Adres url do wyjaśnienia
+  shared:
+    optional: opcjonalne
+  succed:
+    game:
+      create: Gra została stworzona
+      delete: Gra została usunięta
+      finished: Gra ukończona
+      runned: Gra jest już uruchomiona (lub ukończona) i nie można jej edytować!
+      running: Gra jest już uruchomiona
+      update: Gra została zaktualizowana
+    language:
+      change: Language changed to %{lang}
+    question:
+      activate: Aktywowano %{c} pytanie/pytań.
+      answer: Musisz podać odpowiedź!
+      cannotDelete: Nie można usunąć tego pytania!
+      create: Pytanie zostało stworzone
+      deactivate: Zdezaktywowano %{questions.count} pytanie/pytań.
+      delete: Pytanie zostało usunięte
+      update: Pytanie zostało zaktualizowane
+    rule:
+      create: Zasada została stworzona
+      delete: Zasada została usunięta
+      update: Zasada została zaktualizowana
+    team:
+      create: Drużyna została stworzona
+      delete: Drużyna została usunięta
+      update: Drużyna została zaktualizowana
+  toast:
+    wrong: Coś poszło nie tak!
