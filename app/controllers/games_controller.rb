@@ -263,10 +263,9 @@ class GamesController < ApplicationController
 				:question_id => @question,
 				:status => "rules"
 			)
-			add_webhook_record(@game_progress.id)
 			@game_progress.save()
+			add_webhook_record
 
-			
 			prepare_game_vars
 		end
 	end
@@ -283,6 +282,11 @@ class GamesController < ApplicationController
 			:answer => params[:answer]
 		)
 		@answer.save()
+
+		# If that was the last answer send webhook
+		if Question.find( params[:question] ).is_all_answer(params[:id])
+			add_webhook_record			
+		end
 
 		# Redirect
 		respond_to do |format|
@@ -305,7 +309,7 @@ class GamesController < ApplicationController
 			gp.first.save()
 
 			# Send webhook
-			add_webhook_record(gp.first.id)
+			add_webhook_record
 
 			# Redirect
 			respond_to do |format|
@@ -324,7 +328,7 @@ class GamesController < ApplicationController
 				)
 				gp.first.save()
 
-				add_webhook_record(gp.first.id)
+				add_webhook_record
 
 				# Redirect
 				respond_to do |format|
@@ -344,7 +348,7 @@ class GamesController < ApplicationController
 			game = Game.find(gp.first.game_id)
 			game.update(:status => "finished")
 
-			add_webhook_record(gp.first.id)
+			add_webhook_record
 
 			redirect_to games_path, notice: "Game finished."
 		end
@@ -360,7 +364,7 @@ class GamesController < ApplicationController
 		gp.first.update(:status => "scoreboard")
 		gp.first.save()
 
-		add_webhook_record(gp.first.id)
+		add_webhook_record
 
 		# Redirect
 		respond_to do |format|
@@ -379,7 +383,7 @@ class GamesController < ApplicationController
 		gp.first.update(:status => "break")
 		gp.first.save()
 
-		add_webhook_record(gp.first.id)
+		add_webhook_record
 
 		# Redirect
 		respond_to do |format|
@@ -388,8 +392,11 @@ class GamesController < ApplicationController
 		end
 	end
 
-	def add_webhook_record(gp_id)
-		GameProgress.find(gp_id).add_webhook_record
+	def add_webhook_record
+		# Add info to reload game root page
+		Webhook.create(
+			:lang => I18n.locale == :pl ? 'pl' : 'en'
+		)
 	end
 
 	def play_show_question
@@ -402,25 +409,13 @@ class GamesController < ApplicationController
 		gp.first.update(:status => "play")
 		gp.first.save()
 		
-		add_webhook_record(gp.first.id)
+		add_webhook_record
 
 		# Redirect
 		respond_to do |format|
 			format.html { redirect_to game_play_path(params[:id]) }
 			format.json { head :no_content }
 		end
-	end
-	
-	def webhook
-
-		w = Webhook.all()
-		lang = w.count > 0 && w.last && w.last.lang ? w.last.lang : I18n.default_locale
-
-		render json: {
-			"webhooks" => w.count,
-			"lang" => lang
-		}
-
 	end
 
 	private

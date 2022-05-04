@@ -6,7 +6,6 @@
 	<div id="content" class="my-10 w-full">
 		<%# GAME IS NOT RUNNING YET %>
 		<% if @gp.nil? %>
-			<% Webhook.clear_last_weebhook %>
 			<div class="neon-border neon-text neon-red text-4xl text-red-600">
 				<p class="p-20">
 					Not game found
@@ -14,7 +13,6 @@
 			</div>
 		<%# GAME IS RUNNING %>
 		<% else %>
-			<% @gp.clear_webhooks %>
 			<%# GAME %>
 			<% if @gp.status == "play" %>
 				<div class="flex justify-around space-x-10 mb-8">
@@ -149,6 +147,8 @@
 <script>
 	// on load
 	$(document).ready(function() {
+		let webhooks_count = <%= Webhook.get_webhook_record %>;
+
 		// every second 
 		setInterval(function() {
 			// get game
@@ -158,7 +158,7 @@
 				dataType: 'json',
 				success: function(data) {
 					// if data.webhooks > 0, refresh page
-					if (data.webhooks > 0)
+					if (data.count > webhooks_count)
 						// redirect to /lang/game/ {data.lang}
 						window.location.href = '/lang/game/' + data.lang;
 			}});

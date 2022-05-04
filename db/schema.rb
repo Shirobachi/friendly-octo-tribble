@@ -91,11 +91,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_02_065059) do
   end
 
   create_table "webhooks", force: :cascade do |t|
-    t.integer "game_progress_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "lang"
-    t.index ["game_progress_id"], name: "index_webhooks_on_game_progress_id"
   end
 
   add_foreign_key "answers", "games"
@@ -107,5 +105,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_02_065059) do
   add_foreign_key "game_questions", "questions"
   add_foreign_key "game_teams", "games"
   add_foreign_key "game_teams", "teams"
-  add_foreign_key "webhooks", "game_progresses"
 end
