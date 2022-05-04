@@ -142,6 +142,7 @@ pl:
     ansc: "Odpowiedź C"
     ansd: "Odpowiedź D"
     urlToSource: "Adres url do źródła"
+    justification: "Wyjaśnienie"
     urlToJustification: "Adres url do wyjaśnienia"
     score: "Punkty"
     timeInSeconds: "Czas w sekundach"

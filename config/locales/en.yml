@@ -142,7 +142,7 @@ en:
     ansb: "Answer B"
     ansc: "Answer C"
     ansd: "Answer D"
-    justification: "justification"
+    justification: "Justification"
     urlToJustification: "URL to justification"
     score: "Score"
     timeInSeconds: "Time in seconds"
