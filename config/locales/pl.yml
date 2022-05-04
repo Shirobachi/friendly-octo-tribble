@@ -52,6 +52,8 @@ pl:
       manual: "Dodaj pytania ręcznie"
       edit: "Edytuj grę"
       delete: "Usuń tę grę"
+      configuring: "Konfiguruowanie"
+      
       #manage questions
       questionTitle: "Tytuł"
       usage: "Użycie"
@@ -94,10 +96,18 @@ pl:
       create: "Gra została stworzona"
       update: "Gra została zaktualizowana"
       delete: "Gra została usunięta"
+      cannotDelete: "Nie można usunąć tej gry!"
+      runned: "Gra jest już uruchomiona (lub ukończona) i nie można jej edytować!"
+      running: "Gra jest już uruchomiona"
+      finished: "Gra ukończona"
     question:
       create: "Pytanie zostało stworzone"
       update: "Pytanie zostało zaktualizowane"
       delete: "Pytanie zostało usunięte"
+      answer: "Musisz podać odpowiedź!"
+      deactivate: "Zdezaktywowano %{questions.count} pytanie/pytań."
+      activate: "Aktywowano %{c} pytanie/pytań."
+      cannotDelete: "Nie można usunąć tego pytania!"
     rule:
       create: "Zasada została stworzona"
       update: "Zasada została zaktualizowana"
@@ -106,7 +116,9 @@ pl:
       create: "Drużyna została stworzona"
       update: "Drużyna została zaktualizowana"
       delete: "Drużyna została usunięta" 
-
+    language:
+      change: "Language changed to %{lang}" 
+  
   actions:
     rename: "Edytuj"
     question: "Zarządzaj pytaniami do gry"
@@ -145,5 +157,7 @@ pl:
 
   game: 
     scoreboard: "Tablica wyników"
+    confirm: "Potwierdź"
+    noScore: "[Brak wyniku]"
 
   

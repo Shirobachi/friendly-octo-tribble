@@ -6,9 +6,7 @@ class MenuController < ApplicationController
 			active: true
 		)
 
-		redirect_to menu_misc_path, notice: "Deactivated #{questions.count} questions."
-
-		
+		redirect_to menu_misc_path, notice: t('succed.question.deactivate', count: questions.count)
 
 		questions.each do |q|
 			q.active = false
@@ -28,7 +26,7 @@ class MenuController < ApplicationController
 			q.save
 		end
 
-		redirect_to menu_misc_path, notice: "Activated #{c} questions."
+		redirect_to menu_misc_path, notice: t('succed.question.activate', count: c)
 	end
 
 	def lang
@@ -41,17 +39,9 @@ class MenuController < ApplicationController
 		lang = params[:lang] == 'en' ? 'English' : 'Polski'
 
 		if params[:type] == 'admin'
-			redirect_to menu_path, notice: t('menu.lang.admin', lang: lang)
+			redirect_to menu_path, notice: t('succed.language.change', lang: lang)
 		else
 			redirect_to root_path
 		end
-	end
-
-	def webhook
-
-		render :json => {
-			"count": Webhook.get_webhook_record,
-			"lang": Webhook.lang
-		}
 	end
 end
