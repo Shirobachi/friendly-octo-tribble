@@ -87,6 +87,8 @@ en:
       noRules: "No rules yet"
       edit: "Edit rule"
       delete: "Delete this rule"
+    misc: 
+      title: "Misc"
     
     
   toast:
@@ -166,6 +168,15 @@ en:
       
   shared:
     optional: "optional"
+
+  misc:
+    smart:
+      deactivate: 
+        title: "Deactivate all questions used at least X times"
+        button: "Deactivate!"
+      activate: 
+        title: "Activate all questions used at most X times"
+        button: "Activate!"
 
   #for HTML
   #usage:

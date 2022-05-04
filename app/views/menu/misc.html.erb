@@ -8,11 +8,11 @@
 						<div class="flex flex-col justify-center items-center mt-5 space-y-3">
 							<%= form.number_field :used, 
 								class: "neon-red", 
-								placeholder: "Deactivate all questions used at least X times", 
+								placeholder: t('misc.smart.deactivate.title'), 
 								min: 1,
 								:required => true 
 							%>
-							<%= form.submit 'Deactivate!', class: "neon neon-red" %>
+							<%= form.submit t('misc.smart.deactivate.button'), class: "neon neon-red" %>
 						</div>
 					<% end %>
 
@@ -26,10 +26,10 @@
 						<div class="flex flex-col justify-center items-center mt-5 space-y-3">
 							<%= form.number_field :used, 
 								class: "neon-green", 
-								placeholder: "Activate all questions used at most X times", 
+								placeholder: t('misc.smart.activate.title'), 
 								:required => true 
 							%>
-							<%= form.submit 'Activate!', class: "neon neon-green" %>
+							<%= form.submit t('misc.smart.activate.button'), class: "neon neon-green" %>
 						</div>
 					<% end %>
 

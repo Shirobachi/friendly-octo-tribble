@@ -87,6 +87,8 @@ pl:
       noRules: "Brak zasad"
       edit: "Edytuj zasadę"
       delete: "Usuń zasadę"
+    misc:
+      title: "Inne"
     
   toast:
     wrong: "Coś poszło nie tak!"  
@@ -146,8 +148,8 @@ pl:
     ansb: "Odpowiedź B"
     ansc: "Odpowiedź C"
     ansd: "Odpowiedź D"
-    urlToSource: "Adres url do źródła"
     urlToJustification: "Adres url do wyjaśnienia"
+    justification: "Wyjaśnienie"
     score: "Punkty"
     timeInSeconds: "Czas w sekundach"
     #team
@@ -165,4 +167,24 @@ pl:
     confirm: "Potwierdź"
     noScore: "[Brak wyniku]"
 
-  
+  shared:
+    optional: "opcjonalne"
+
+  misc:
+    smart:
+      deactivate: 
+        title: "Dezaktywuj pytania użyte przynajmniej X razy"
+        button: "Dezaktywuj!"
+      activate: 
+        title: "Aktywuj pytania użyte maksymalnie X razy"
+        button: "Aktywuj!"
+
+  panel:
+    buttons:
+      Start_the_game: "Rozpocznij grę"
+      Return_to_game: "Powrót do gry"
+      Next_question: "Następne pytanie"
+      Finish_game: "Zakończ grę"
+      Justification: "Wyjaśnienie"
+      Break: "Pauza"
+      Scoreboard: "Tablica wyników"
