@@ -46,4 +46,12 @@ class MenuController < ApplicationController
 			redirect_to root_path
 		end
 	end
+
+	def webhook
+
+		render :json => {
+			"count": Webhook.get_webhook_record,
+			"lang": Webhook.lang
+		}
+	end
 end

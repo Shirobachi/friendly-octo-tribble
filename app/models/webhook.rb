@@ -1,14 +1,27 @@
 class Webhook < ApplicationRecord
-  belongs_to :game_progress
+	def self.add_webhook_record
+		# Add webhook record
+		p "Added webhook record"
+		p "Added webhook record"
 
-	def self.clear_last_weebhook
-		last_gp_id = GameProgress.all.order(:id).last.id
-		w = Webhook.where(game_progress_id: last_gp_id)
+		Webhook.create(
+			:lang => I18n.locale == :pl ? 'pl' : 'en'
+		)
 
-		if w.count > 0
-			w.last.destroy
-		end
+		p "Added webhook record"
+		p "Added webhook record"
+		
+	end
 
+	def self.get_webhook_record
+		# Get webhook record
+		return Webhook.all.count
+	end
+	
+	def self.lang
+		l = Webhook.all.last.lang
+		
+		return l || 'en'
 	end
 
 end
