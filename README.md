@@ -32,7 +32,7 @@ Celem projektu było stworzenie dla klienta aplikacji quizowej do baru/klubu, kt
 - możliwość wyświetlenia poprawnej odpowiedzi wraz z ilością drużyn, które na nie odpowiedziały
 - możliwość wyświetlania rankingu z ostatnich 10 gier 10 najlepszych drużyn
 - możliwość przelosowania danego pytania
-- mozliwosc wyświetlenia nast. pytania
+- możliwość wyświetlenia nast. pytania
 - możliwość dodania nowego pytania (pytanie (text + [url]), 4x odp [text] + [url], [uzasadnienie ([text] + [img] + [url source])] + (ilość pkt + czas))
 - możliwość zarządzania pulą pytań
 - możliwość wyświetlenia pytania (odpowiedzi będą się wyświetlać w losowej kolejność)
@@ -66,3 +66,17 @@ Celem projektu było stworzenie dla klienta aplikacji quizowej do baru/klubu, kt
 # Baza danych (schemat ERD)
 
 ![schemat bazy danych.png](README-assets/schemat_bazy_danych.png)
+
+# Kluczowe funkcjonalności
+Kluczowe funkcjonalności znajdują się w kontrolerze **`GameController`**, gdzie są takie funkcjonalności jak:
+- Przypisywanie pytań i drużyn do gier
+- Wyświetlanie pytań
+- Przeprowadzanie gier (wyświetlenie pytań, wyświetlenie odpowiedzi, sprawdzenie poprawności odpowiedzi, przypisanie odpowiedzi do drużyn itp.)
+
+W **`MenuController`** znajduje się funkcjonalności poboczne takie jak:
+- (De)aktywacja pytań wg ich użyć
+- Pobieranie informacji o webhook'ach
+
+Wewnątrz kontrolerów zasobów (Question, Team, Game etc.) znajdują się odpowiednie metody CRUD
+
+**`Webhook`** jest elementem potrzebnym do automatycznego odświeżania strony. Przy pewnych akcjach jest dodawany rekord, a co 500 sekundy jest sprawdzane czy rekord jest więcej niż podczas włączenia strony (jeśli tak to strona się odświeża).
